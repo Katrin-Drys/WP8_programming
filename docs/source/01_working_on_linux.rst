@@ -50,31 +50,25 @@ A standard set of commands is shown in the following table.
 +-----------------------+----------------------------------------------+
 |  command              | description                                  |
 +=======================+==============================================+
-| ``pwd``               | Prints the working directory                 |
+| ``pwd``               | Prints the working directory.                |
 +-----------------------+----------------------------------------------+
-| ``ls``                | Lists the files in the current directory     |
+| ``ls``                | Lists the files in the current directory.    |
 +-----------------------+----------------------------------------------+
-| ``ls -options``       | Lists the files in the current directory     |
-|                       | according to the provided options.           |
-|                       | For further details see the manpage of ls    |
-|                       | with the ``man`` ls command, or type         |
-|                       | ``ls -h``                                    |
+| ``cd <dir>``          | Changes to the directory with the name <dir>.|
 +-----------------------+----------------------------------------------+
-| ``cd <name>``         | change to the directory with ``<name>``      |
+| ``cd ..``             | Changes to the parent directory.             |
 +-----------------------+----------------------------------------------+
-| ``cd ..``             | change to the parent directory               |
+| ``cp <file1> <file2>``| Copies file ``<file1>`` to ``<file2>``.      |
 +-----------------------+----------------------------------------------+
-| ``cp <old> <new>``    | copy file ``<old>`` to ``<new>``             |
+| ``cp -r <dir1> <dir2>``| Copies directory ``<dir1>`` to ``<dir2>``.  |
 +-----------------------+----------------------------------------------+
-| ``cp -r <old> <new>`` | copy directory ``<old>`` to ``<new>``        |
+| ``mv <old> <new>``    | Moves/Renames file/directory.                |
 +-----------------------+----------------------------------------------+
-| ``mv <old> <new>``    | move (rename) file/directory                 |
+| ``rm <file>``         | Removes file with name ``<file>``            |
 +-----------------------+----------------------------------------------+
-| ``rm <name>``         | remove file with ``<name>``                  |
+| ``rm -r <dir>``       | Removes directory recursively (caution!).    |
 +-----------------------+----------------------------------------------+
-| ``rm -r <name>``      | remove directory recursively (caution!)      |
-+-----------------------+----------------------------------------------+
-| ``mkdir <name>``      | make a new directory with ``<name>``         |
+| ``mkdir <dir>``       | Creates a new directory with name ``<dir>``. |
 +-----------------------+----------------------------------------------+
 | ``rmdir <name>``      | remove (empty) directory with ``<name>``     |
 +-----------------------+----------------------------------------------+
