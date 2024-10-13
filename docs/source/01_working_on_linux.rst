@@ -47,50 +47,37 @@ your home directory, this will print the path to that home directory to the scre
 
 A standard set of commands is shown in the following table.
 
-.. list-table:: Common Linux commands and their descripttions
-    :widths: 25 75
-    :header-rows: 1
-
-    * - Command
-      - Description
-
-    * - ``pwd``
-        - Prints working directory.
-
-    * - ``ls``
-        - Lists the files and folders in the current directory.
-
-    * - ``ls -options``
-        - Lists the files in the current directory according to the provided options. 
-         For further details see the manpage of ls with the ``man ls`` command, or type ``ls -h``.
-
-    * - ``cp file1 file2``
-       - Copies a file with the name file1 to file with the name file2.
-    
-    * - ``cp -r dir1 dir2``
-       - Copies a directory with the name dir1 to dir2. The -r option is necessary to copy directories.
-
-    * - ``mv file1 file2``
-        - Moves a file with the name file1 to file with the name file2.
-
-    * - ``mv dir1 dir2``
-        - Moves a directory with the name dir1 to dir2.
-
-    * - ``rm file``
-        - Removes a file with the name file.
-
-    * - ``rm -r dir``
-        - Removes a directory with the name dir. The -r option is necessary to remove directories.
-
-    * - ``mkdir dir``
-        - Creates a directory with the name dir.
-
-    * - ``cd dir``
-        - Changes the current directory into the directory dir.
-
-    * - ``cd ..``
-        - Changes to a lower directory level, e.g. your working directory is ``/home/username/dir1`` before the command and
-          ``/home/username`` after executing the command
++-----------------------+----------------------------------------------+
+|  command              | description                                  |
++=======================+==============================================+
+| ``pwd``               | Prints the working directory                 |
++-----------------------+----------------------------------------------+
+| ``ls``                | Lists the files in the current directory     |
++-----------------------+----------------------------------------------+
+| ``ls -options``       | Lists the files in the current directory     |
+|                       | according to the provided options.           |
+|                       | For further details see the manpage of ls    |
+|                       | with the ``man`` ls command, or type         |
+|                       | ``ls -h``                                    |
++-----------------------+----------------------------------------------+
+| ``cd <name>``         | change to the directory with ``<name>``      |
++-----------------------+----------------------------------------------+
+| ``cd ..``             | change to the parent directory               |
++-----------------------+----------------------------------------------+
+| ``cp <old> <new>``    | copy file ``<old>`` to ``<new>``             |
++-----------------------+----------------------------------------------+
+| ``cp -r <old> <new>`` | copy directory ``<old>`` to ``<new>``        |
++-----------------------+----------------------------------------------+
+| ``mv <old> <new>``    | move (rename) file/directory                 |
++-----------------------+----------------------------------------------+
+| ``rm <name>``         | remove file with ``<name>``                  |
++-----------------------+----------------------------------------------+
+| ``rm -r <name>``      | remove directory recursively (caution!)      |
++-----------------------+----------------------------------------------+
+| ``mkdir <name>``      | make a new directory with ``<name>``         |
++-----------------------+----------------------------------------------+
+| ``rmdir <name>``      | remove (empty) directory with ``<name>``     |
++-----------------------+----------------------------------------------+
 
 
 This is only a very basic list of commands available and some of them possess a huge variety of 
