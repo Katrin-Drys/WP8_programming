@@ -2,12 +2,12 @@
 
 # -- Project information
 
-project = 'Lumache'
-copyright = '2021, Graziella'
-author = 'Graziella'
+project = 'Molecular Dynamics of Time-Dependent Phenomena (Module MCh WP 8)'
+copyright = '2024, Kirchner group'
+author = 'Kirchner group'
 
-release = '0.1'
-version = '0.1.0'
+release = 'WISe2024'
+#version = '0.1.0'
 
 # -- General configuration
 
