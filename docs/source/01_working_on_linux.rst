@@ -90,3 +90,7 @@ A standard set of commands is shown in the following table.
     * - ``cd ..``
         - Changes to a lower directory level, e.g. your working directory is ``/home/username/dir1`` before the command and
           ``/home/username`` after executing the command
+
+
+This is only a very basic list of commands available and some of them possess a huge variety of 
+options that can not be listed here
