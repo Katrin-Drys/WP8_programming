@@ -29,7 +29,7 @@ system it provides you with various information. In a standard configuration it 
 computer and the tilde (~) shows that you are currently located in your home directory. The
 Linux file structure follows the 'Filesystem Hierarchy Standard', which ensures a similar file
 structure on every version of Linux you can get. As you work with the system you will rapidly
-gain experience about the di↵erent directories and their purposes. For now you should know
+gain experience about the different directories and their purposes. For now you should know
 that you are in your home directory which is located at ``/home/username`` and is abbreviated
 by ~.
 
