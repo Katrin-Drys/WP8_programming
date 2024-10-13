@@ -48,6 +48,7 @@ your home directory, this will print the path to that home directory to the scre
 A standard set of commands is shown in the following table.
 
 .. list-table:: Common Linux commands and their descripttions
+    :widths: 25 75
     :header-rows: 1
 
     * - Command
