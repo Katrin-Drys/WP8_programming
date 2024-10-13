@@ -110,12 +110,9 @@ Redirecting the Input/Output
 ----------------------------
 All programs that run in the shell have three standard channels assigned. These are
 
-1. The standard input channel ``stdin``. Normally this channel reads from the keyboard, which
-    is connected to your shell.
-2. The standard output channel ``stdout``. Normally this channel writes to the screen, which is
-    connected to your shell.
-3. The standard error channel ``stderr``. Normally this channel writes to the screen, much like
-    ``stdout``.
+1. The standard input channel ``stdin``. Normally this channel reads from the keyboard, which is connected to your shell.
+2. The standard output channel ``stdout``. Normally this channel writes to the screen, which is connected to your shell.
+3. The standard error channel ``stderr``. Normally this channel writes to the screen, much like ``stdout``.
 
 You can now redirect those channels using your shell commands. To redirect ``stdin`` use the ``<``
 character. You could rewrite all the commands you learned by now, which need the contents
