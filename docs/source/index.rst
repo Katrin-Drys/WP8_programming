@@ -1,7 +1,7 @@
 Welcome to the programming part of WP8!
 ===================================
 
-This is the script that will help you to programm your own MD simulation.
+This script will guide you in programming your own Molecular Dynamics (MD) simulation.
 
 .. toctree::
    :maxdepth: 3
