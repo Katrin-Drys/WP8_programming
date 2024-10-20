@@ -135,18 +135,51 @@ contain the word ``exercise`` and are listed in the current working directory.
 
 Editors
 -------
-
 To access and edit any textfile in Linux you will need an editor. A huge variety of editors exists and your 
 difficult task is to pick the one you are most comfortable with. We introduce the most common one in this 
 chapter, but feel free to work with the editor that fits you the best.
-\subsubsection*{VIM}
-One of the most used editors is the \textbf{vim} editor. It comes with almost any Linux distribution and is 
-a very powerful tool to deal with text files. You can open the editor just by typing: \verb#vim filename#\\
-If the file did not exist before, it will be created when saving. The main feature of \textbf{vim} is that 
-editing is spread out on different modes. There is a command mode and an edit mode. \textbf{vim} starts in 
-the command mode, where you can execute different tasks and move your cursor with the arrow keys. If you are 
-stuck, you can always get back in the command mode by pressing the \verb#<ESC># key. To edit the file just press 
-\textbf{a}. This enables editing at the current position of the cursor. You get back to the command mode by pressing 
-\verb#<ESC>#. A fairly extensive introduction is given by the \verb#vimtutor# program. A basic set of commands is 
-shown in the following table.
 
+vim 
+~~~~
+One of the most used editors is the ``vim`` editor. It comes with almost any Linux distribution and is 
+a very powerful tool to deal with text files. You can open the editor just by typing: ``vim filename``.
+
+If the file did not exist before, it will be created when saving. The main feature of ``vim`` is that 
+editing is spread out on different modes. There is a command mode and an edit mode. ``vim`` starts in 
+the command mode, where you can execute different tasks and move your cursor with the arrow keys. If you are 
+stuck, you can always get back in the command mode by pressing the ``ESC`` key. To edit the file just press 
+``a``. This enables editing at the current position of the cursor. You get back to the command mode by pressing 
+``ESC``. A fairly extensive introduction is given by the ``vimtutor`` program. A basic set of commands is 
+shown in the table below.
+
++------------------------------+--------------------------------------------------+
+| Command                       | Description                                      |
++==============================+==================================================+
+| ``a``                         | Appends text at the current cursor position.     |
++------------------------------+--------------------------------------------------+
+| ``i``                         | Inserts text before the cursor position.         |
++------------------------------+--------------------------------------------------+
+| ``o``                         | Opens a new line below the current line.         |
++------------------------------+--------------------------------------------------+
+| ``dd``                        | Deletes the current line.                        |
++------------------------------+--------------------------------------------------+
+| ``d <number> d``              | Deletes the current line and the <number>        |
+|                               | following lines.                                 |
++------------------------------+--------------------------------------------------+
+| ``u``                         | Undo.                                            |
++------------------------------+--------------------------------------------------+
+| ``<Ctrl> r``                  | Redo.                                            |
++------------------------------+--------------------------------------------------+
+| ``<Shift> r``                 | Replace.                                         |
++------------------------------+--------------------------------------------------+
+| ``:w``                        | Writes the file.                                 |
++------------------------------+--------------------------------------------------+
+| ``:w filename``               | Writes the file to the given filename.           |
++------------------------------+--------------------------------------------------+
+| ``:q``                        | Quits the editor, only works if no unsaved       |
+|                               | changes exist.                                   |
++------------------------------+--------------------------------------------------+
+| ``:q!``                       | Forces quit even with unsaved changes.           |
++------------------------------+--------------------------------------------------+
+| ``:x`` or ``:wq``             | Quits and saves the file.                        |
++------------------------------+--------------------------------------------------+
