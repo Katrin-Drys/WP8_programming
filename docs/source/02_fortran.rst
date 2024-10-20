@@ -83,12 +83,12 @@ For instance, it can be a floating point number or a string of text, which then 
     program variable_example
         implicit none
 
-        // Declare variables
+        ! Declare variables
         pi = 3.14159
         radius = 2.0
         area = pi * radius**2
 
-        // Print the result
+        ! Print the result
         write(*,*), 'The area of a circle with radius ', radius, ' is ', area
     end program variable_example
 
