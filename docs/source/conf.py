@@ -12,10 +12,12 @@ release = 'WISe2024'
 # -- General configuration
 
 extensions = [
-    "sphinx_panels",
+    'sphinx.ext.duration',
+    'sphinx.ext.doctest',
+    'sphinx.ext.autodoc',
+    'sphinx.ext.autosummary',
+    'sphinx.ext.intersphinx',
     "sphinx_copybutton",
-    "sphinx_togglebutton",
-    "sphinx_tabs.tabs",
 ]
 
 intersphinx_mapping = {
