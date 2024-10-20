@@ -37,9 +37,10 @@ program is already installed. If you work on your own computer, you need to inst
 Let's take a look at the simplest Fortran program:
 
 .. code-block:: fortran
+    :linenos:
 
     program hello
-    write(*,*), 'Hello World!'
+        write(*,*), 'Hello World!'
     end program hello
 
 If you execute this program, it will write the text ``Hello World!`` to the screen. The first line

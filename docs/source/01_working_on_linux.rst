@@ -10,7 +10,7 @@ simulator, type:
 
 .. code-block:: bash
 
-   sssh username@ssh5.thch.uni-bonn.de
+   ssh username@ssh5.thch.uni-bonn.de
 
 Please don't keep huge amount of data on ssh5.
 From ssh5 type:
