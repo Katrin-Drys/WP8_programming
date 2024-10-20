@@ -153,33 +153,43 @@ stuck, you can always get back in the command mode by pressing the ``ESC`` key. 
 shown in the table below.
 
 +------------------------------+--------------------------------------------------+
-| Command                       | Description                                      |
+| Command                      | Description                                      |
 +==============================+==================================================+
-| ``a``                         | Appends text at the current cursor position.     |
+| ``a``                        | Appends text at the current cursor position.     |
 +------------------------------+--------------------------------------------------+
-| ``i``                         | Inserts text before the cursor position.         |
+| ``i``                        | Inserts text before the cursor position.         |
 +------------------------------+--------------------------------------------------+
-| ``o``                         | Opens a new line below the current line.         |
+| ``o``                        | Opens a new line below the current line.         |
 +------------------------------+--------------------------------------------------+
-| ``dd``                        | Deletes the current line.                        |
+| ``dd``                       | Deletes the current line.                        |
 +------------------------------+--------------------------------------------------+
-| ``d <number> d``              | Deletes the current line and the <number>        |
-|                               | following lines.                                 |
+| ``d <number> d``             | Deletes the current line and the <number>        |
+|                              | following lines.                                 |
 +------------------------------+--------------------------------------------------+
-| ``u``                         | Undo.                                            |
+| ``u``                        | Undo.                                            |
 +------------------------------+--------------------------------------------------+
-| ``<Ctrl> r``                  | Redo.                                            |
+| ``<Ctrl> r``                 | Redo.                                            |
 +------------------------------+--------------------------------------------------+
-| ``<Shift> r``                 | Replace.                                         |
+| ``<Shift> r``                | Replace.                                         |
 +------------------------------+--------------------------------------------------+
-| ``:w``                        | Writes the file.                                 |
+| ``:w``                       | Writes the file.                                 |
 +------------------------------+--------------------------------------------------+
-| ``:w filename``               | Writes the file to the given filename.           |
+| ``:w filename``              | Writes the file to the given filename.           |
 +------------------------------+--------------------------------------------------+
-| ``:q``                        | Quits the editor, only works if no unsaved       |
-|                               | changes exist.                                   |
+| ``:q``                       | Quits the editor, only works if no unsaved       |
+|                              | changes exist.                                   |
 +------------------------------+--------------------------------------------------+
-| ``:q!``                       | Forces quit even with unsaved changes.           |
+| ``:q!``                      | Forces quit even with unsaved changes.           |
 +------------------------------+--------------------------------------------------+
-| ``:x`` or ``:wq``             | Quits and saves the file.                        |
+| ``:x`` or ``:wq``            | Quits and saves the file.                        |
 +------------------------------+--------------------------------------------------+
+
+other editors
+~~~~~~~~~~~~~
+Other editors that have been installed on your workstations are ``kwrite``, which is similar to MS Notepad, 
+and ``kate``, which has features of a project-oriented GUI. We do not encourage the use of these editors 
+because they need a graphical interface, which often is a problem when working on a remote machine (i.e. from 
+home or when using a cluster computer). If you decide to program on a private device, you also can choose from 
+several free IDEs (integrated development environments), for example ``Visual Studio Code`` or ``Atom``.
+
+
