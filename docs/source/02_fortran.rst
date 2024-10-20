@@ -80,7 +80,7 @@ To do so, we need to introduce the concept of ``variables`` and ``variable typin
 They can have different values, similar to the variables used in math.
 However, in Fortran, variables cannot be used as unknowns in an equation, only in an assignment.
 We need to declare the data type of every variable explicitly, this means that a variable is given a 
-specific and unchanging data type like ``character``, ``integer`` or ``real``.
+specific and unchanging data type like ``character``, ``integer`` (:math:`\in\mathbb{Z}`) or ``real``(:math:`\in\mathbb{R}`).
 
 .. code-block:: fortran
     :linenos:
@@ -108,12 +108,8 @@ In this program, we declare three variables: ``a``, ``b`` and ``c``.
 ``a`` is an integer, ``b`` is a character and ``c`` is a real number.
 The ``len=9`` attribute of the character variable ``b`` specifies that the variable can only hold nine characters.
 
-        
-
 Programming languages use strong variable typing to help with efficiency and error avoidance.
 The need to declare a variable also arises from the fact that in order to use a variable, you need to have an 
 appropriate chunk of main memory (RAM) to store the value of the variable in. The size (and partitioning) of that 
-chunk is determined by the type of the variable. The most important types of variables you will work with are integers, 
-i.e., ``whole`` numbers (:math:`\in\mathbb{Z}`) and floating point numbers (floats, doubles), i.e., real ``numbers``
-(:math:`\in\mathbb{R}`) expressed as decimal numbers.
+chunk is determined by the data type of the variable. 
 
