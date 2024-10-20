@@ -40,7 +40,7 @@ Let's take a look at the simplest Fortran program:
     :linenos:
 
     program hello
-        write(*,*), 'Hello World!'
+        write(*,*) 'Hello World!'
     end program hello
 
 If you execute this program, it will write the text ``Hello World!`` to the screen. The first line
@@ -65,6 +65,11 @@ To compile the program, open a terminal and type:
 The ``gfortran`` command is the compiler, ``hello.f90`` is the source code file.
 The ``-o``flag allows you to specify the name of the output file, which is ``hello`` in this case.
 If you don't specify the output file name, the compiler will create a file called ``a.out``.
+To run the program, type:
+
+.. code-block:: bash
+
+    ./hello
 
 Performing simple computing tasks
 ---------------------------------
@@ -74,30 +79,41 @@ To do so, we need to introduce the concept of ``variables`` and ``variable typin
 ``Variables`` are used in computing tasks to give meaning to numbers.
 They can have different values, similar to the variables used in math.
 However, in Fortran, variables cannot be used as unknowns in an equation, only in an assignment.
-It can be useful to strongly type variables, meaning that a variable is given a specific and unchanging role.
-For instance, it can be a floating point number or a string of text, which then defines possible uses of the variable.
+We need to declare the data type of every variable explicitly, this means that a variable is given a 
+specific and unchanging data type like ``character``, ``integer`` or ``real``.
 
 .. code-block:: fortran
     :linenos:
 
-    program variable_example
+    program declare
         implicit none
 
         ! Declare variables
-        real*8 :: pi, radius, area
+        integer :: a 
+        character(len=9) :: b
+        real :: c
 
         ! Assign values to variables
-        pi = 3.14159
-        radius = 2.0
-        area = pi * radius**2
+        a = 5
+        b = 'pineapple'
+        c = 3.14
 
-        ! Print the result
-        write(*,*) 'The area of a circle with radius ', radius, ' is ', area
-    end program variable_example
+        ! Print the values of the variables
+        write(*,*) 'a = ', a
+        write(*,*) 'b = ', b
+        write(*,*) 'c = ', c
+    end program declare
+
+In this program, we declare three variables: ``a``, ``b`` and ``c``.
+``a`` is an integer, ``b`` is a character and ``c`` is a real number.
+The ``len=9`` attribute of the character variable ``b`` specifies that the variable can only hold nine characters.
+
+        
 
 Programming languages use strong variable typing to help with efficiency and error avoidance.
 The need to declare a variable also arises from the fact that in order to use a variable, you need to have an 
 appropriate chunk of main memory (RAM) to store the value of the variable in. The size (and partitioning) of that 
 chunk is determined by the type of the variable. The most important types of variables you will work with are integers, 
-i.e., ``whole`` numbers (:math:`\mathbb{Z}`) and floating point numbers (floats, doubles), i.e., real numbers (:math:`\mathbb{R}`) 
-expressed as decimal numbers.
+i.e., ``whole`` numbers (:math:`\in\mathbb{Z}`) and floating point numbers (floats, doubles), i.e., real ``numbers``
+(:math:`\in\mathbb{R}`) expressed as decimal numbers.
+
