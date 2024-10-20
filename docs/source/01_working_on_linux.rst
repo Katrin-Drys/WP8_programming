@@ -184,7 +184,7 @@ shown in the table below.
 | ``:x`` or ``:wq``            | Quits and saves the file.                        |
 +------------------------------+--------------------------------------------------+
 
-Other Editors
+Other editors
 ~~~~~~~~~~~~~
 Other editors that have been installed on your workstations are ``kwrite``, which is similar to MS Notepad, 
 and ``kate``, which has features of a project-oriented GUI. We do not encourage the use of these editors 
