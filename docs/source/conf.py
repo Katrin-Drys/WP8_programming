@@ -17,6 +17,7 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.autosummary',
     'sphinx.ext.intersphinx',
+    'sphinx_rtd_dark_mode',
     "sphinx_copybutton",
 ]
 
@@ -30,15 +31,8 @@ templates_path = ['_templates']
 
 # -- Options for HTML output
 
-html_theme = 'sphinx_book_theme'
-
-html_theme_options = {
-    'theme_switcher': True,
-}
-
-html_css_files = [
-    "custom.css",
-]
+html_theme = 'sphinx_rtd_theme'
+default_dark_mode = False
 
 # path to custom css
 html_static_path = ["_static"]
