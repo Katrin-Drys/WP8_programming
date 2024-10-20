@@ -80,7 +80,7 @@ To do so, we need to introduce the concept of ``variables`` and ``variable typin
 They can have different values, similar to the variables used in math.
 However, in Fortran, variables cannot be used as unknowns in an equation, only in an assignment.
 We need to declare the data type of every variable explicitly, this means that a variable is given a 
-specific and unchanging data type like ``character``, ``integer`` (:math:`\in\mathbb{Z}`) or ``real``(:math:`\in\mathbb{R}`).
+specific and unchanging data type like ``character``, ``integer`` (:math:`\in\mathbb{Z}`) or ``real`` (:math:`\in\mathbb{R}`).
 
 .. code-block:: fortran
     :linenos:
