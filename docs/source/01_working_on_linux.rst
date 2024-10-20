@@ -132,3 +132,21 @@ ls will list the content of your current working directory. The pipe character w
 system to hand the text over to the next command, ``grep``, which will only show those lines
 matching the pattern provided. As a result, this will print out all files (and directories), which
 contain the word ``exercise`` and are listed in the current working directory.
+
+Editors
+-------
+
+To access and edit any textfile in Linux you will need an editor. A huge variety of editors exists and your 
+difficult task is to pick the one you are most comfortable with. We introduce the most common one in this 
+chapter, but feel free to work with the editor that fits you the best.
+\subsubsection*{VIM}
+One of the most used editors is the \textbf{vim} editor. It comes with almost any Linux distribution and is 
+a very powerful tool to deal with text files. You can open the editor just by typing: \verb#vim filename#\\
+If the file did not exist before, it will be created when saving. The main feature of \textbf{vim} is that 
+editing is spread out on different modes. There is a command mode and an edit mode. \textbf{vim} starts in 
+the command mode, where you can execute different tasks and move your cursor with the arrow keys. If you are 
+stuck, you can always get back in the command mode by pressing the \verb#<ESC># key. To edit the file just press 
+\textbf{a}. This enables editing at the current position of the cursor. You get back to the command mode by pressing 
+\verb#<ESC>#. A fairly extensive introduction is given by the \verb#vimtutor# program. A basic set of commands is 
+shown in the following table.
+
