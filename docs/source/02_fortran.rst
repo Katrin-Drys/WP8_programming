@@ -92,7 +92,7 @@ For instance, it can be a floating point number or a string of text, which then 
         area = pi * radius**2
 
         ! Print the result
-        write(*,*), 'The area of a circle with radius ', radius, ' is ', area
+        write(*,*) 'The area of a circle with radius ', radius, ' is ', area
     end program variable_example
 
 Programming languages use strong variable typing to help with efficiency and error avoidance.
