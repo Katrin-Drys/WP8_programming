@@ -84,6 +84,9 @@ For instance, it can be a floating point number or a string of text, which then 
         implicit none
 
         ! Declare variables
+        real*8 :: pi, radius, area
+
+        ! Assign values to variables
         pi = 3.14159
         radius = 2.0
         area = pi * radius**2
