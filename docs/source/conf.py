@@ -35,11 +35,6 @@ templates_path = ['_templates']
 html_theme = 'sphinx_rtd_theme'
 default_dark_mode = False
 
-html_theme_options = {
-    # Other theme options...
-    'mathjax_path': 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
-}
-
 
 # path to custom css
 html_static_path = ["_static"]

@@ -99,5 +99,5 @@ Programming languages use strong variable typing to help with efficiency and err
 The need to declare a variable also arises from the fact that in order to use a variable, you need to have an 
 appropriate chunk of main memory (RAM) to store the value of the variable in. The size (and partitioning) of that 
 chunk is determined by the type of the variable. The most important types of variables you will work with are integers, 
-i.e., ``whole`` numbers (\mathbb{Z}) and floating point numbers (floats, doubles), i.e., real numbers (\mathbb{R}) 
+i.e., ``whole`` numbers (:math: `\mathbb{Z}`) and floating point numbers (floats, doubles), i.e., real numbers (\mathbb{R}) 
 expressed as decimal numbers.
