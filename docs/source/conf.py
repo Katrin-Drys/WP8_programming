@@ -32,5 +32,16 @@ templates_path = ['_templates']
 
 html_theme = 'sphinx_rtd_theme'
 
+html_theme_options = {
+    'theme_switcher': True,
+}
+
+html_css_files = [
+    "custom.css",
+]
+
+# path to custom css
+html_static_path = ["_static"]
+
 # -- Options for EPUB output
 epub_show_urls = 'footnote'
