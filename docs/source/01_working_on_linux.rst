@@ -139,7 +139,7 @@ To access and edit any textfile in Linux you will need an editor. A huge variety
 difficult task is to pick the one you are most comfortable with. We introduce the most common one in this 
 chapter, but feel free to work with the editor that fits you the best.
 
-vim 
+VIM 
 ~~~~
 One of the most used editors is the ``vim`` editor. It comes with almost any Linux distribution and is 
 a very powerful tool to deal with text files. You can open the editor just by typing: ``vim filename``.
@@ -184,7 +184,7 @@ shown in the table below.
 | ``:x`` or ``:wq``            | Quits and saves the file.                        |
 +------------------------------+--------------------------------------------------+
 
-other editors
+Other Editors
 ~~~~~~~~~~~~~
 Other editors that have been installed on your workstations are ``kwrite``, which is similar to MS Notepad, 
 and ``kate``, which has features of a project-oriented GUI. We do not encourage the use of these editors 
