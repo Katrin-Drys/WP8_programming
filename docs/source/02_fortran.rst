@@ -206,7 +206,7 @@ Unlike other errors, the compiler will not warn you about this.
     2. Perform a division instead of an addition.
 
 
-Accuracy of Numbers 
+Accuracy of numbers 
 -------------------
 The accuracy of numbers is a rather subtle issue. Two seemingly identical operations may
 yield different results if the numbers involved are specified to different accuracy. Consider the
@@ -243,3 +243,39 @@ than a single precision number, which is indicated by the ``e0`` suffix, or no s
 In this course, we will use double precision numbers for all calculations including real numbers.
 Thus, you will use the ``*8`` suffix for all real numbers in your program.
 
+Repeating tasks (do loop)
+-------------------------
+In programming, you often need to repeat a task multiple times. This is done using a ``do loop``.
+One could of course simply copy and paste the code multiple times, but this is not only tedious, but also
+error-prone. If you need to change the code, you would have to change it everywhere you copied it.
+
+Loops generally have the following structure:
+An index variable and its starting and ending values are declared.
+The code inside the loop is executed as long as the index variable is within the specified range.
+At the end of each iteration, the index variable is increased by a specified amount, usually 1.
+When the index variable reaches the end value, the loop ends and the program continues with the code after the loop.
+
+Let's look at a program that calculates the sum of the first 10 natural numbers.
+
+.. code-block:: fortran
+    :linenos:
+
+    program sum
+        implicit none
+
+        ! Declare variables
+        ! Most programmers use i, j, k, l, m, n as index variables
+        integer :: i, res
+
+        ! Initialize the res
+        res = 0
+
+        ! Loop over the numbers
+        ! The loop starts with i = 1 and ends with i = 10, after each iteration i is increased by 1
+        do i = 1, 10
+            res = res + i
+        end do
+
+        ! Print the result
+        write(*,*) 'The sum of the first 10 natural numbers is ', res
+    end program sum
