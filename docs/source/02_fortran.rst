@@ -193,7 +193,7 @@ Otherwise the program might just use some random value that was stored in the me
 where the variable is supposed to be stored.
 Unlike other errors, the compiler will not warn you about this.
 
-.. admonition:: Exercise
+.. admonition:: Exercise 1
     
     The ``read(*,*)`` statement works similarly to the ``write(*,*)`` statement, and its general input 
     statement is ``read/write(unit, format)``. 
@@ -279,3 +279,82 @@ Let's look at a program that calculates the sum of the first 10 natural numbers.
         ! Print the result
         write(*,*) 'The sum of the first 10 natural numbers is ', res
     end program sum
+
+.. admonition:: Exercise 2
+
+    Write a program that calculates the factorial of a number (n!) using a do loop.
+
+
+Conditional statements (if then else)
+--------------------------------------
+Frequently, we need to test for a certain fact or condition and take one or the other action
+accordingly. An example is the convergence of a calculation (which would lead to a termination
+of the program) or a wrong input (which would result in aborting the program early). Virtually
+all programming languages have a construct that allows for this, usually termed the if-branching.
+
+.. code-block:: fortran
+    :linenos:
+
+    program nTest
+        implicit none
+
+        ! Declare variables
+        integer :: n
+
+        ! Read the value of n from the console
+        write(*,*) 'Enter a number:'
+        read(*,*) n
+
+        ! Test if n is positive
+        if (n > 0) then
+            write(*,*) 'n is positive'
+        else
+            write(*,*) 'n is not positive'
+        end if
+    end program nTest
+
+In this program, we declare a variable ``n`` and read its value from the console.
+We then test if ``n`` is positive and print the result.
+To check if a number is equal to another number, you can use the ``==`` operator, not the ``=`` operator!
+The ``==`` operator is used for comparison, while the ``=`` operator is used for assignment.
+    
+Cycle and exit
+~~~~~~~~~~~~~
+Sometimes you want to skip the rest of the loop and start the next iteration, or you want to exit the loop
+completely. This can be done using the ``cycle`` and ``exit`` statements.
+
+The ``cycle`` statement skips the rest of the loop and starts the next iteration.
+The ``exit`` statement exits the loop completely.
+
+Let's look at an example:
+
+.. code-block:: fortran
+    :linenos:
+
+    program CycleExit
+        implicit none
+
+        ! Declare variables
+        integer :: i
+            
+        ! Loop over the numbers
+        do i = 1, 10
+
+            ! Skip the rest of the loop if i is even
+            if (mod(i, 2) == 0) cycle
+
+            ! Exit the loop if i is greater than 5
+            if (i > 5) exit
+
+            ! Print the value of i 
+            write(*,*) i
+        end do
+    end program CycleExit
+
+
+.. admonition:: Exercise 3
+
+    Modify the program that calculates the sum of the first 10 natural numbers to find out when the 
+    sum exceeds 60. 
+    Make the program print the sum and the number of iterations it took to exceed 60.
+    (Answer: 11.)
