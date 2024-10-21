@@ -199,9 +199,9 @@ Unlike other errors, the compiler will not warn you about this.
     statement is ``read/write(unit, format)``. 
     Here ``unit`` is the input/output variable name, which is usually ``*`` for the console, and ``format`` is the
     statement number or label of the format statement, also usually ``*`` for the console.
-    Modify the program above to ..
-    1. .. read the values of ``a`` and ``b`` from the console.
-    2. .. perform a division instead of an addition.
+    Modify the program above to:
+    1. Read the values of ``a`` and ``b`` from the console.
+    2. Perform a division instead of an addition.
 
 
 
