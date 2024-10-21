@@ -201,11 +201,45 @@ Unlike other errors, the compiler will not warn you about this.
     statement number or label of the format statement, also usually ``*`` for the console.
 
     Modify the program above to:
-    
+
     1. Read the values of ``a`` and ``b`` from the console.
     2. Perform a division instead of an addition.
 
 
+Accuracy of Numbers 
+-------------------
+The accuracy of numbers is a rather subtle issue. Two seemingly identical operations may
+yield different results if the numbers involved are specified to different accuracy. Consider the
+following program:
 
+.. code-block:: fortran
+    :linenos:
 
+    program accuracy
+        implicit none
+
+        ! Declare variables
+        real*8 :: a, b, c
+
+        ! Assign values to variables
+        a = 1.0d0 / 3.0d0
+        b = 1.0e0 / 3.0e0
+        c = 1.0 / 3.0
+
+        ! Print the values of the variables
+        write(*,*) 'a = ', a
+        write(*,*) 'b = ', b
+        write(*,*) 'c = ', c
+    end program accuracy
+
+In this program, we declare three variables: ``a``, ``b`` and ``c`` as real numbers.
+The ``*8`` following the ``real`` keyword specifies that 8 bytes of memory should be allocated for the variable.
+This is a way to specify the accuracy of the number. The more bytes are allocated, the more accurate the number is.
+When you compile and run this program, you will see that the values of ``b`` and ``c`` are the same, but the 
+value of ``a`` is different.
+This is because the ``d0`` suffix specifies that the number is a double precision number, which is more accurate
+than a single precision number, which is indicated by the ``e0`` suffix, or no suffix at all.
+
+In this course, we will use double precision numbers for all calculations including real numbers.
+Thus, you will use the ``*8`` suffix for all real numbers in your program.
 
