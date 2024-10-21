@@ -113,3 +113,24 @@ The need to declare a variable also arises from the fact that in order to use a 
 appropriate chunk of main memory (RAM) to store the value of the variable in. The size (and partitioning) of that 
 chunk is determined by the data type of the variable. 
 
+Now we are ready to write a program that adds two numbers.
+
+.. code-block:: fortran
+    :linenos:
+
+    program add
+        implicit none
+
+        ! Declare variables
+        integer :: a, b, result
+
+        ! Assign values to variables
+        a = 5
+        b = 3
+
+        ! Add the numbers
+        result = a + b
+
+        ! Print the result
+        write(*,*) 'The sum of ', a, ' and ', b, ' is ', result
+    end program add
