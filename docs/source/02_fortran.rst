@@ -122,15 +122,88 @@ Now we are ready to write a program that adds two numbers.
         implicit none
 
         ! Declare variables
-        integer :: a, b, result
+        integer :: a, b, res
 
         ! Assign values to variables
         a = 5
         b = 3
 
         ! Add the numbers
-        result = a + b
+        res = a + b
 
         ! Print the result
-        write(*,*) 'The sum of ', a, ' and ', b, ' is ', result
+        write(*,*) 'The sum of ', a, ' and ', b, ' is ', res
     end program add
+
+Let's go through the program step by step:
+
+#. Line 1: The program name is ``add``.
+#. Line 2: The ``implicit none`` statement tells the compiler that all variables must be declared explicitly.
+           If this is not done, the compiler will assume that variables starting with the letters ``i``, ``j``, ``k``,
+           ``l``, ``m`` and ``n`` are integers, when not declared explicitly.
+           Put this statement at the beginning of every program you write!
+#. Line 5: We declare three variables: ``a``, ``b`` and ``res`` as integers.
+#. Lines 8 and 9: We assign the values 5 and 3 to the variables ``a`` and ``b``.
+#. Line 12: We add the numbers and store the result in the variable ``res``.
+#. Line 15: We print the result.
+#. Line 16: The program ends.
+
+All lines starting with an exclamation mark (!) are comments and are ignored by the compiler.
+Comments are used to explain the code to the reader and to make the code more readable.
+A nicely commented code is easier to understand and debug.
+
+As already mentioned, variables cannot be used as unknowns in an equation, only in an assignment.
+This means that the following code will not work:
+
+.. code-block:: fortran
+    :linenos:
+
+    program wrong
+        implicit none
+
+        ! Declare variables
+        integer :: a, b, res
+
+        ! Assign values to variables
+        a = 5
+        b = 3
+
+        ! Add the numbers
+        a + b = res
+
+        ! Print the result
+        write(*,*) 'The sum of ', a, ' and ', b, ' is ', res
+    end program wrong
+
+If you try to compile this code, you will get an error message like this:
+
+.. code-block:: bash
+
+    wrong.f90:12:9:
+
+    12 |         a + b = res
+       |         1
+    Error: Unclassifiable statement at (1)
+
+An important and useful consequence of this feature is that the statement ``a = a + 1`` is valid
+and will increase the value of ``a`` by 1, as long as ``a`` was declared as an integer or real number
+beforehand.
+Always remember to declare and initialize your variables before using them!
+Otherwise the program might just use some random value that was stored in the memory location
+where the variable is supposed to be stored.
+Unlike other errors, the compiler will not warn you about this.
+
+.. admonition:: Exercise
+    
+    The ``read(*,*)`` statement works similarly to the ``write(*,*)`` statement, and its general input 
+    statement is ``read/write(unit, format)``. 
+    Here ``unit`` is the input/output variable name, which is usually ``*`` for the console, and ``format`` is the
+    statement number or label of the format statement, also usually ``*`` for the console.
+    Modify the program above to ..
+    1. .. read the values of ``a`` and ``b`` from the console.
+    2. .. perform a division instead of an addition.
+
+
+
+
+
