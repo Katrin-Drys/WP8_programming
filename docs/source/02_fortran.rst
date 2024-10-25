@@ -358,3 +358,119 @@ Let's look at an example:
     sum exceeds 60. 
     Make the program print the sum and the number of iterations it took to exceed 60.
     (Answer: 11.)
+
+Structured Data (Arrays)
+------------------------
+Often it is necessary to store a large number of values in a program. This can be done using ``arrays``.
+An array is a collection of variables of the same type that are stored in contiguous memory locations.
+In an array, not only the values of the variables are important, but also the position of the variable in the array.
+Common examples of arrays are ``vectors`` and ``matrices`` and higher dimensional arrays.
+F90 offers a natural way to handle arrays, which is shown in the following example:
+
+.. code-block:: fortran
+    :linenos:
+
+    program array
+        implicit none
+
+        ! Simple floating point number
+        real*8 :: scalar
+
+        ! Vector of floating point numbers
+        ! Both declarations are equivalent and create a vector with 3 elements
+        real*8, dimension(3) :: vector1
+        real*8 :: vector2(3)
+
+        ! Matrix of floating point numbers
+        ! Both declarations are equivalent and create a 3x3 matrix
+        real*8, dimension(3, 3) :: matrix1
+        real*8 :: matrix2(3, 3)
+
+        ! Assign values to the variables
+        ! Helper variable
+        integer :: i
+
+        ! Assign all elements of the vector1
+        vector1 = (/1.0d0, 2.0d0, 3.0d0/)
+        ! Reassign the first element of the vector1
+        vector1(1) = 4.0d0
+
+        ! Assign the first row of the matrix1
+        matrix1(1, :) = (/1.0d0, 2.0d0, 3.0d0/)
+        ! Assign the second row of the matrix1 in a loop
+        do i = 1, 3
+            matrix1(2, i) = i
+        end do
+    end program array
+
+When dealing with arrays, there are two main things to consider:
+The first one is the allocation of memory. The size of the array must be specified when declaring the array.
+There will be situations where you don't know the size of the array beforehand. 
+An instance may be an array of atom positions, where the number of atoms is not known until the program is run.
+It is not a good idea to define a very large array and hope that it will be large enough, because 
+it may not be large enough or it may be too large and waste memory.
+In this case, you can use ``allocatable`` arrays, which are declared without a size and are allocated memory 
+dynamically.
+The syntax for declaring an allocatable array is:
+
+.. code-block:: fortran
+    :linenos:
+
+    program allocatable
+        implicit none
+
+        ! Declare an allocatable array
+        real*8, allocatable :: array(:)
+
+        ! Declare a helper variable
+        integer :: dimension
+
+        ! Read the dimension of the array from the console
+        write(*,*) 'Enter the dimension of the array:'
+        read(*,*) dimension
+
+        ! Allocate memory for the array
+        allocate(array(dimension))
+
+        ! Do cool stuff with the array
+
+        ! Deallocate the memory
+        deallocate(array)
+    end program allocatable
+
+The second point is even more important.
+Imagine a vector has been allocated with 3 elements, but you try to access the 4th element.
+What will happen? The answer is: nobody knows.
+One of the following things may happen:
+
+#. The best case is that the program is not permitted by the operating system (Linux in our case) to 
+access that part of main memory that you just tried to access. In that case, it would give a message 
+like ``Operation not permitted`` or ``Segmentation fault`` (segfault in short) and you actually know 
+that there is an error in your code.
+#. The program may fail quietly, leaving you wondering what happened.
+#. The worst case is this: No safety checks catch the problem, and your program reads whatever it finds 
+in the location described by vector(4). This may be anything from total garbage to zero. Since the program 
+has no indication that there was a problem, it will use that value in a computation - which will give 
+unexpected or flawed results. It is the very nature of such errors that they are hard to spot, even when 
+you are aware that there is a problem.
+
+What actually happens depends on many factors: operating system, system usage, number and nature of concurrently 
+running programs etc. If a program (which does not use random numbers) gives different results with the same input 
+if executed a number of times, chances for the existence of a wrong access are high.
+Related to the bad access mistake listed above is the following mistake: Allocating or declaring a variable and 
+using it in an addition (or similar operation) without giving it an explicit start value. This will also lead to 
+strange results, because whatever was in the main memory at the space assigned to your variable will be used 
+instead of the number that you want (which is usually zero). Thus, whenever introducing a variable, make sure that 
+it starts off with a defined value. This process is called initialization and is of fundamental importance.
+
+.. admonition:: Exercise 4
+
+    Write a program that - takes the dimension and the values of two vectors :math:`\vec{a}` and :math:`\vec{b}`
+    as input, and calculates the scalar product of the two vectors :math:`\vec{a}\cdot\vec{b}`.
+    Additionally, if the dismensions of the two vectors are 3, it should also calculate the vector product of the 
+    two vectors :math:`\vec{a}\times\vec{b}`.
+
+    Remember that vou can pipe files into the program to provide input without having to type it manually
+    in the console every time. 
+
+
