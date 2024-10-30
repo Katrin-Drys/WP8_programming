@@ -1,7 +1,7 @@
 Welcome to the programming part of WP8!
 ===================================
 
-This script will walk you through programming your own program to run a 
+This script will walk you through building your own program to run a 
 Molecular Dynamics (MD) simulation.
 
 Have fun!
