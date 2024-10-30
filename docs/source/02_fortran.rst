@@ -474,3 +474,73 @@ it starts off with a defined value. This process is called initialization and is
     in the console every time. 
 
 
+Reusing code (subroutines)
+--------------------------
+In the planning of a project, you will sometimes find that you need to do a particular small task 
+in a similar fashion at more than one point in your code. An example of this may be the multiplication 
+of two matrices or the calculation of the angle between two vectors.
+It is therefore advisable to separate the necessary code for that task from the rest of your program 
+(and structure both as necessary, too), so that it can be useful in more than one place. The preferred 
+way to do this in F90 is the use of subroutines. Structurally, they are very similar to the main program 
+that you used so far. 
+
+.. code-block:: fortran
+    :linenos:
+
+    module vector_operations
+        implicit none
+    contains
+        subroutine vectorLength(dim, vec, length)
+            implicit none
+
+            ! Declare variables
+            ! The dimension of the vector is an input variable, thus it is declared as intent(in)
+            ! That means that the subroutine will not change the value of the variable
+            integer, intent(in) :: dim
+            ! Same for the vector
+            real*8, intent(in) :: vec(:)
+            ! The length of the vector is an output variable, thus it is declared as intent(out)
+            ! That means that the subroutine will change the value of the variable
+            real*8, intent(out) :: length
+            integer :: i
+
+            ! Initialize the length
+            length = 0.0d0
+
+            ! Calculate the length of the vector
+            do i = 1, dim
+                length = length + vec(i)**2
+            end do
+
+            length = sqrt(length)
+        end subroutine vectorLength
+    end module vector_operations
+
+    program vector
+        use vector_operations
+        implicit none
+
+        ! Declare variables
+        real*8, allocatable :: vecA(:)
+        real*8 :: lengthA
+        integer :: dimA
+
+        ! Read the dimension of the vector from the console
+        write(*,*) 'Enter the dimension of the vector:'
+        read(*,*) dimA
+
+        ! Allocate memory for the vector
+        allocate(vecA(dimA))
+
+        ! Read the values of the vector from the console
+        write(*,*) 'Enter the values of the vector:'
+        read(*,*) vecA
+
+        ! Call the subroutine that calculates the length of the vector
+        call vectorLength(dimA, vecA, lengthA)
+
+        ! Print the length of the vector
+        write(*,*) 'The length of the vector is ', lengthA
+    end program vector
+
+
