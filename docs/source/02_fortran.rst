@@ -490,6 +490,7 @@ that you used so far.
     module vector_operations
         implicit none
     contains
+        ! Our subroutine is part of the module vector_operations
         subroutine vectorLength(dim, vec, length)
             implicit none
 
@@ -517,6 +518,7 @@ that you used so far.
     end module vector_operations
 
     program vector
+        ! This needs to be included in order to be able to use the subroutines in the module
         use vector_operations
         implicit none
 
@@ -543,4 +545,10 @@ that you used so far.
         write(*,*) 'The length of the vector is ', lengthA
     end program vector
 
+
+.. tip::
+    It is a good idea to define modules in which you collect subroutines for specific tasks.
+    This way, you can easily reuse the code in other programs and keep your code organized.
+    If you define modules, you can even write the code into separate files and include them in your program
+    using the ``use`` statement.
 
