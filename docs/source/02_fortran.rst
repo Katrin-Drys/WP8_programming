@@ -559,5 +559,3 @@ Let's proceed with another exercise.
     Copy and modify your vector-program such that you calculate the scalar product and the vector product 
     in subroutines. Notice that if you give descriptive names to your subroutines, the structure of the main 
     program is much easier to understand. You therein describe what you do, not how you do it.
-
-
