@@ -1,7 +1,10 @@
 Welcome to the programming part of WP8!
 ===================================
 
-This script will guide you in programming your own Molecular Dynamics (MD) simulation.
+This script will walk you through programming your own program to run a 
+Molecular dynamics (MD) simulation.
+
+Have fun!
 
 .. toctree::
    :maxdepth: 3
