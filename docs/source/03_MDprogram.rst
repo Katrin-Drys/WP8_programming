@@ -16,6 +16,7 @@ the evolution of the system is described by the series of the coordinate values
 
 .. math::
     :label: eq:positionDef
+    
     r^N(t_{n-1}) = r^N(t_n - \delta t) 
     r^N(t_n) 
     r^N(t_{n+1}) = r^N(t_n + \delta t)
