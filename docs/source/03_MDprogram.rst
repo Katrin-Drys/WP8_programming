@@ -17,9 +17,9 @@ the evolution of the system is described by the series of the coordinate values
 .. math::
 
     \begin{align}
-    &r^N(t_{n-1}) = r^N(t_n - \delta t) \\
-    &r^N(t_n) \tag{1}\\
-    &r^N(t_{n+1}) = r^N(t_n + \delta t)
+    &r^N(t_{n-1}) = r^N(t_n - \delta t) \tag{1} \\
+    &r^N(t_n) \tag{2}\\
+    &r^N(t_{n+1}) = r^N(t_n + \delta t) \tag{3}
     \end{align}
 
 This tells us, that the position of particle *N* at time :math:`t_{n-1}` is equal to
