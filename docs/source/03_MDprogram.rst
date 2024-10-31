@@ -15,8 +15,12 @@ Counting the successive equidistant points on the time axis by the index ``n``,
 the evolution of the system is described by the series of the coordinate values
 
 .. math::
-    r^N(t_{n-1}) = r^N(t_n - \delta t)
+    :label: eq:positionDef
+    r^N(t_{n-1}) = r^N(t_n - \delta t) \\
+    r^N(t_n) \\
+    r^N(t_{n+1}) = r^N(t_n + \delta t)
 
-Here *r^N(t_n)* is the position of the particle *N* at time :math:`t_n` and 
-_\delta t_ is the time step. The velocity of the particle is defined as the
-:emphasis:`E = mc^2`
+This tells us, that the position of particle *N* at time :math:`t_{n-1}` is equal to
+the position of the particle at time :math:`t_n` minus the time step :math:`\delta t`.
+The position of the particle at time :math:`t_{n+1}` is equal to the position of the
+particle at time :math:`t_n` plus the time step :math:`\delta t`.
