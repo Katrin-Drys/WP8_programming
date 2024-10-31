@@ -19,7 +19,7 @@ the evolution of the system is described by the series of the coordinate values
 
     \begin{align}
     &r^N(t_{n-1}) = r^N(t_n - \delta t) \\
-    &r^N(t_n) \\
+    &r^N(t_n) \tag{1}\\
     &r^N(t_{n+1}) = r^N(t_n + \delta t)
     \end{align}
 
