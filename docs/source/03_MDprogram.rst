@@ -17,5 +17,6 @@ the evolution of the system is described by the series of the coordinate values
 .. math::
     r^N(t_{n-1}) = r^N(t_n - \delta t)
 
-Here :inline_math:`r^N(t_n)` is the position of the particle ``N`` at time ``t_n`` and 
-:math:`\delta t$` is the time step. The velocity of the particle is defined as the
+Here *r^N(t_n)* is the position of the particle *N* at time :math:`t_n` and 
+_\delta t_ is the time step. The velocity of the particle is defined as the
+:emphasis:`E = mc^2`
