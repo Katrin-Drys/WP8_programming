@@ -1,6 +1,3 @@
-Fortran basics
-==============
-
 Programming is the art of precisely telling a computer what to do, usually to perform an 
 action or solve a problem which would be too difficult to do by hand. It thus involves the 
 following steps: 
@@ -359,7 +356,7 @@ Let's look at an example:
     Make the program print the sum and the number of iterations it took to exceed 60.
     (Answer: 11.)
 
-Structured Data (Arrays)
+Structured Data (arrays)
 ------------------------
 Often it is necessary to store a large number of values in a program. This can be done using ``arrays``.
 An array is a collection of variables of the same type that are stored in contiguous memory locations.

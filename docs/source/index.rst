@@ -18,6 +18,12 @@ Have fun!
 
    02_fortran
 
+.. toctree::
+   :maxdepth: 3
+   :caption: Writing a simple MD program
+
+   03_MDprogram
+
 .. note::
 
    This project is under active development.
