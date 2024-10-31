@@ -15,7 +15,6 @@ Counting the successive equidistant points on the time axis by the index ``n``,
 the evolution of the system is described by the series of the coordinate values
 
 .. math::
-    :label: eq:positionDef
 
     \begin{align}
     &r^N(t_{n-1}) = r^N(t_n - \delta t) \\
