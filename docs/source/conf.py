@@ -41,8 +41,9 @@ html_css_files = [
     "custom.css",
 ]
 html_js_files = [
-    'custom_mathjax.js',
+    'inline_label.js',
 ]
+
 
 
 # -- Options for EPUB output

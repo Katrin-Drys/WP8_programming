@@ -1,9 +1,9 @@
-/* Hide any remaining top labels */
-a.math-anchor {
+/* Hide the default top label */
+.math .math-block > a.math-anchor {
     display: none !important;
 }
 
-/* Center the equation and display the label on the right */
+/* Center the equation and place the label on the right */
 .math.display {
     text-align: center;
     display: flex;
@@ -12,11 +12,11 @@ a.math-anchor {
     margin: 1em 0;
 }
 
-/* Add the custom label on the right side */
-.math.display:after {
-    content: attr(data-label);
+/* Manually style the right label */
+.math-block:after {
+    content: attr(data-equation-number); /* Assumes label as attribute */
     display: inline-block;
-    margin-left: 1em; /* Adjust this space as needed */
+    margin-left: 1em; /* Adjust spacing as desired */
     font-size: 0.9em; /* Adjust font size if needed */
     color: #555;      /* Customize color if desired */
 }
