@@ -41,3 +41,8 @@ html_static_path = ["_static"]
 
 # -- Options for EPUB output
 epub_show_urls = 'footnote'
+
+# For equations
+html_static_path = ['_static']
+html_css_files = ['custom.css']
+

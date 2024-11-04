@@ -1,0 +1,10 @@
+.math, .math-display {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.math .label, .math-display .label {
+    margin-left: auto;
+    padding-left: 1em;  /* Adjust spacing as needed */
+}
