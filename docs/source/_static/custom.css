@@ -1,16 +1,1 @@
-/* Center the equation and position the label on the far right */
-.rst-content .math {
-    display: flex;
-    justify-content: center; /* Centers the equation itself */
-    align-items: center;
-    position: relative;
-}
 
-/* Position the label on the far right */
-.rst-content .math .label {
-    position: absolute;
-    right: 0; /* Aligns the label to the right side */
-    font-size: 90%;
-    color: #555;
-    margin-left: 10px;
-}
