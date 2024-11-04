@@ -561,4 +561,4 @@ Application
 -----------
 Finally, to give a more complicated example using several of the syntactic elements discussed above, 
 we sketch a code for a three dimensional generalization placing Argon atoms on a simple cubic grid. 
-The side length of the cubic box is :math:`l = 17.158$~\AA{}` and the number of atoms is $natom = 108$.
+The side length of the cubic box is :math:`l = 17.158~\text{Å}` and the number of atoms is $natom = 108$.
