@@ -556,3 +556,9 @@ Let's proceed with another exercise.
     Copy and modify your vector-program such that you calculate the scalar product and the vector product 
     in subroutines. Notice that if you give descriptive names to your subroutines, the structure of the main 
     program is much easier to understand. You therein describe what you do, not how you do it.
+
+Application
+-----------
+Finally, to give a more complicated example using several of the syntactic elements discussed above, 
+we sketch a code for a three dimensional generalization placing Argon atoms on a simple cubic grid. 
+The side length of the cubic box is :math:`l = 17.158$~\AA{}` and the number of atoms is $natom = 108$.
