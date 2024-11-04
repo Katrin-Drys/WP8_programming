@@ -1,22 +1,6 @@
-/* Hide the default top label */
-.math .math-block > a.math-anchor {
-    display: none !important;
+.math {
+    text-align: left;
 }
-
-/* Center the equation and place the label on the right */
-.math.display {
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 1em 0;
-}
-
-/* Manually style the right label */
-.math-block:after {
-    content: attr(data-equation-number); /* Assumes label as attribute */
-    display: inline-block;
-    margin-left: 1em; /* Adjust spacing as desired */
-    font-size: 0.9em; /* Adjust font size if needed */
-    color: #555;      /* Customize color if desired */
+.eqno {
+    float: right;
 }

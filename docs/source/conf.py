@@ -40,11 +40,6 @@ html_static_path = ["_static"]
 html_css_files = [
     "custom.css",
 ]
-html_js_files = [
-    'inline_label.js',
-]
-
-
 
 # -- Options for EPUB output
 epub_show_urls = 'footnote'
