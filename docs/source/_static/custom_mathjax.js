@@ -1,17 +1,16 @@
-MathJax = {
+window.MathJax = {
     tex: {
-        tags: 'all',  // Use all labels
-        tagSide: 'right',  // Align tags to the right
+        tags: 'ams', // Use AMS-style labels to suppress default top labels
     },
     options: {
         renderActions: {
-            addLabel: [200, function (doc) {
+            addCustomLabel: [200, function (doc) {
                 for (const math of doc.math) {
                     if (math.display && math.root.tag) {
-                        // Add the label as a data attribute to the parent container
+                        // Set the custom data-label attribute for the right-aligned label
                         math.typesetRoot.parentNode.setAttribute(
                             'data-label',
-                            math.root.tag
+                            '\\(' + math.root.tag + '\\)'
                         );
                     }
                 }
@@ -19,4 +18,3 @@ MathJax = {
         }
     }
 };
-
