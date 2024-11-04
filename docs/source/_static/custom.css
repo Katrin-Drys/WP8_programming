@@ -1,4 +1,9 @@
-/* Center the equation */
+/* Hide the default top label */
+a.math-anchor {
+    display: none;
+}
+
+/* Center the equation and position the label to the right */
 .math.display {
     text-align: center;
     display: flex;
@@ -7,11 +12,10 @@
     margin: 1em 0;
 }
 
-/* Position the equation label to the right of the equation */
 .math.display:after {
     content: attr(data-label);
     display: inline-block;
-    margin-left: 1em;  /* Adjust this space as necessary */
-    font-size: 0.9em;  /* Adjust font size if needed */
-    color: #555;       /* Customize color as desired */
+    margin-left: 1em; /* Adjust this space as necessary */
+    font-size: 0.9em; /* Adjust font size if needed */
+    color: #555;      /* Customize color as desired */
 }
