@@ -608,3 +608,18 @@ The side length of the cubic box is :math:`l = 17.158~\text{Å}` and the number 
         end do
         close(14)
     end program SC_grid
+
+To place the atoms on the grid, we first calculate the number of lattice points per side, ``nlp``,
+as the cube root of the number of atoms. The function ``int()`` truncates a (positive) real number 
+to the largest integer smaller than the number. 
+To ensure that we have enough lattice points to place all atoms ``N`` = natom, we increase the 
+number of lattice points per side by one if the number of lattice points cubed is smaller than the 
+number of atoms.
+Now of course we have too many lattice points, and thus some of them will remain empty.
+
+.. tip::
+    You can visualize the box you created using the ``VMD`` program.
+    To do so type:
+    .. code-block:: bash
+
+        vmd SC_box.xyz
