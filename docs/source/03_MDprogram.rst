@@ -1,7 +1,7 @@
 The Verlet Algorithms
 =====================
 
-General Overview
+General overview
 ----------------
 Molecular dynamics (MD) methods are computational approaches used to simulate the 
 motion of particles within a system. They do so by employing iterative numerical techniques 
