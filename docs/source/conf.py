@@ -36,10 +36,14 @@ html_theme = 'sphinx_rtd_theme'
 default_dark_mode = False
 
 # Path to custom CSS
+html_static_path = ["_static"]
 html_css_files = [
     "custom.css",
 ]
-html_static_path = ["_static"]
+html_js_files = [
+    '_static/custom_mathjax.js',
+]
+
 
 # -- Options for EPUB output
 epub_show_urls = 'footnote'
