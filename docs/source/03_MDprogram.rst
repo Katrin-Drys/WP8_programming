@@ -36,7 +36,7 @@ The coordinates are given like this:
 
 The superscript denotes the particle index, and runs from 1 to the total number of particles in 
 the system, *N*.
-Thus, :eq:`timestep_def` indicates that the position of particle *N* at time :math:`t_{n-1}` is denoted by 
+Thus, :numref:`timestep_def` indicates that the position of particle *N* at time :math:`t_{n-1}` is denoted by 
 taking the position of the particle at time :math:`t_n` and moving backward by a time increment of 
 :math:`\delta t`. Similarly, the position of the particle at time :math:`t_{n+1}` is determined by 
 taking the position at :math:`t_n` and moving forward by the same time increment :math:`\delta t`.
