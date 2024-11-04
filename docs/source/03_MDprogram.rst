@@ -17,9 +17,9 @@ the evolution of the system is described by the series of the coordinate values
 .. math::
 
     \begin{align}
-        &r^N(t_{n-1}) &= r^N(t_n - \delta t) \\
-        &r^N(t_n) & \qquad\qquad\qquad\tag{1}\label{eq:timestep_def} \\
-        &r^N(t_{n+1}) &= r^N(t_n + \delta t)
+        &r^N(t_{n-1}) = r^N(t_n - \delta t) \\
+        &r^N(t_n)  \qquad\qquad\qquad\tag{1}\label{eq:timestep_def} \\
+        &r^N(t_{n+1}) = r^N(t_n + \delta t)
     \end{align}
 
 
@@ -27,3 +27,11 @@ This tells us, that the position of particle *N* at time :math:`t_{n-1}` is equa
 the position of the particle at time :math:`t_n` minus the time step :math:`\delta t`.
 The position of the particle at time :math:`t_{n+1}` is equal to the position of the
 particle at time :math:`t_n` plus the time step :math:`\delta t`.
+
+.. math::
+
+    :label: eq:velocity_def
+
+    \begin{equation}
+        \mathbf{r}_i(t + \delta t)=\mathbf{r}_i(t)+\delta t \mathbf{v}_i(t)+\frac{\delta t^2}{2m_i} \mathbf{f}_i(t)+\frac{\delta t^3}{6} \mathbf{b}_i(t)+O(\delta t^4),
+    \end{equation}
