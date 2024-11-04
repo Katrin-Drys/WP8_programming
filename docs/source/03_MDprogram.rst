@@ -20,7 +20,7 @@ the evolution of the system is described by the series of the coordinate values
         &r^N(t_{n-1}) = r^N(t_n - \delta t) \\
         &r^N(t_n) \\
         &r^N(t_{n+1}) = r^N(t_n + \delta t) 
-    \end{align}\tag{1}
+    \end{align}
 
 This tells us, that the position of particle *N* at time :math:`t_{n-1}` is equal to
 the position of the particle at time :math:`t_n` minus the time step :math:`\delta t`.
