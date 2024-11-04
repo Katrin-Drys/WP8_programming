@@ -560,5 +560,51 @@ Let's proceed with another exercise.
 Application
 -----------
 Finally, to give a more complicated example using several of the syntactic elements discussed above, 
-we sketch a code for a three dimensional generalization placing Argon atoms on a simple cubic grid. 
-The side length of the cubic box is :math:`l = 17.158~\text{Å}` and the number of atoms is $natom = 108$.
+we sketch a code for a three dimensional generalization placing Argon atoms on a ``simple cubic`` grid. 
+The side length of the cubic box is :math:`l = 17.158~\text{Å}` and the number of atoms is ``natom = 108``.
+
+.. code-block:: fortran
+    :linenos:
+
+    program SC_grid
+        implicit none
+
+        integer, parameter :: natom = 108       ! Number of atoms
+        integer :: nlp                          ! Number of lattice points per side
+        integer :: counter, i, j, k    
+        real*8, parameter :: l = 17.158d0       ! Side length of the cubic box
+        real*8 :: hl, dl                        ! Half length and distance between atoms
+        real*8, dimension(3,natom) :: coord     ! Position of the atoms
+
+        hl = l / 2.0d0
+        nlp = int(natom**(1.0d0/3.0d0))
+
+        if (nlp**3 < natom) then
+            nlp = nlp + 1
+        end if
+
+        dl = l / nlp
+
+        ! Creates a file to store the positions of the atoms
+        open(14, file='SC_box.xyz')
+        write(14,*) natom
+        write(14,*) 'Ar atoms in a simple cubic box'
+
+        counter = 0
+
+        ! Loop over the lattice points
+        do i = 0, nlp-1
+            do j = 0, nlp-1
+                do k = 0, nlp-1
+                    counter = counter + 1
+                    if (natom >= counter) then
+                        coord(1, counter) = i * dl - hl
+                        coord(2, counter) = j * dl - hl
+                        coord(3, counter) = k * dl - hl
+                        write(14,*) 'Ar', coord(:, counter)
+                    end if
+                end do
+            end do
+        end do
+        close(14)
+    end program SC_grid
