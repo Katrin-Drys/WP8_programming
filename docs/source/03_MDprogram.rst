@@ -28,8 +28,6 @@ the position of the particle at time :math:`t_n` minus the time step :math:`\del
 The position of the particle at time :math:`t_{n+1}` is equal to the position of the
 particle at time :math:`t_n` plus the time step :math:`\delta t`.
 
-.. math::
-
-    \mathbf{r}_i(t + \delta t)=\mathbf{r}_i(t)+\delta t \mathbf{v}_i(t)+\frac{\delta t^2}{2m_i} \mathbf{f}_i(t)+\frac{\delta t^3}{6} \mathbf{b}_i(t)+O(\delta t^4),
+.. math:: \mathbf{r}_i(t + \delta t)=\mathbf{r}_i(t)+\delta t \mathbf{v}_i(t)+\frac{\delta t^2}{2m_i} \mathbf{f}_i(t)+\frac{\delta t^3}{6} \mathbf{b}_i(t)+O(\delta t^4),
     
     :label: velocityDef
