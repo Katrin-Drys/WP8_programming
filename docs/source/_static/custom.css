@@ -1,0 +1,12 @@
+.math, .math-display {
+    display: flex;
+    justify-content: space-between; /* Allows space for label to the right */
+    align-items: center;
+    font-size: 0.9em; /* Adjust as needed */
+}
+
+.math .label, .math-display .label {
+    margin-left: auto; /* Pushes the label to the right */
+    padding-left: 1em; /* Adds some spacing from the equation */
+}
+
