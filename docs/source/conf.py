@@ -37,7 +37,9 @@ default_dark_mode = False
 
 # Path to custom CSS
 html_static_path = ["_static"]
-html_css_files = ["custom.css"]
+# Add custom CSS file
+def setup(app):
+    app.add_css_file('custom.css')  # For Sphinx >= 1.8
 
 # -- Options for EPUB output
 epub_show_urls = 'footnote'
