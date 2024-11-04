@@ -1,11 +1,16 @@
-.math, .math-display {
+/* Custom CSS to position math labels to the right of the equations */
+
+.rst-content .math .label {
+    display: inline-block;
+    float: right;
+    margin-left: 10px;
+    font-size: 90%;
+    color: #555;
+}
+
+/* Adjusts the alignment to ensure the equation itself remains centered */
+.rst-content .math {
     display: flex;
-    justify-content: flex-start;
     align-items: center;
+    justify-content: center;
 }
-
-.math .label, .math-display .label {
-    margin-left: auto;
-    padding-left: 1em;  
-}
-
