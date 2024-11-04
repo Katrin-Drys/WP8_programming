@@ -1,16 +1,16 @@
-/* Custom CSS to position math labels to the right of the equations */
-
-.rst-content .math .label {
-    display: inline-block;
-    float: right;
-    margin-left: 10px;
-    font-size: 90%;
-    color: #555;
-}
-
-/* Adjusts the alignment to ensure the equation itself remains centered */
+/* Center the equation and position the label on the far right */
 .rst-content .math {
     display: flex;
+    justify-content: center; /* Centers the equation itself */
     align-items: center;
-    justify-content: center;
+    position: relative;
+}
+
+/* Position the label on the far right */
+.rst-content .math .label {
+    position: absolute;
+    right: 0; /* Aligns the label to the right side */
+    font-size: 90%;
+    color: #555;
+    margin-left: 10px;
 }
