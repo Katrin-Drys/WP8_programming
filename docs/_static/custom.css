@@ -6,6 +6,6 @@
 
 .math .label, .math-display .label {
     margin-left: auto;
-    padding-left: 10em;  /* Adjust spacing as needed */
-    font-size: 0.9em;   /* Adjust font size to match equation size if necessary */
+    padding-left: 10em;  
+    font-size: 0.9em;   
 }
