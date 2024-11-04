@@ -17,9 +17,9 @@ the evolution of the system is described by the series of the coordinate values
 .. math::
 
     \begin{align}
-        r^N(t_{n-1}) &= r^N(t_n - \delta t) \\
-        r^N(t_n) & \label{eq:timestep_def} \\
-        r^N(t_{n+1}) &= r^N(t_n + \delta t)
+        &r^N(t_{n-1}) &= r^N(t_n - \delta t) \\
+        &r^N(t_n) & \qquad\qquad\qquad\tag{1}\label{eq:timestep_def} \\
+        &r^N(t_{n+1}) &= r^N(t_n + \delta t)
     \end{align}
 
 
