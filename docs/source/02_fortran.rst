@@ -620,6 +620,7 @@ Now of course we have too many lattice points, and thus some of them will remain
 .. tip::
     You can visualize the box you created using the ``VMD`` program.
     To do so type:
+    
     .. code-block:: bash
 
         vmd SC_box.xyz
