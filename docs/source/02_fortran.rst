@@ -553,7 +553,7 @@ that you used so far.
     If you define modules, you can even write the code into separate files and include them in your program
     using the ``use`` statement.
 
-    If you dicide to keep the subroutines in a file named ``FileNameModule.f90`` and the main program in another
+    If you dicide to keep the modules in a file named ``FileNameModule.f90`` and the main program in another
     file named ``FileNameProgram.f90``, you need to compile the module first.
     In this example, the following steps are necessary:
 
