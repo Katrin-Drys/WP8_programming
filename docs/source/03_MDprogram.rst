@@ -46,9 +46,9 @@ The MD schemes we will discuss all use the Cartesian representation. There are, 
 for preferring this description for the chaotic interaction many body systems which are the subject 
 of statical mechanics.
 
-The logic of the verlet algorithm
+ Verlet algorithm
 ---------------------------------
-A very important algorithm in MD is the Verlet algorithm. The Verlet algorithm is based on a clever
+A very important algorithm in MD is the ``Verlet algorithm``. The Verlet algorithm is based on a clever
 combination of the Taylor expansion of the position of a particle forward and backward in time.
 The third order Taylor expansion for the position :math:`r_i` of a particle at time :math:`t + \delta t`
 is given by:
@@ -92,14 +92,99 @@ update in the Verlet algorithm is one step behind the position update. This is n
 for propagating positions, because assuming that the forces are not dependent on the velocity, 
 information on :math:`\mathbf{v}_i(t)` is not needed in Equation :eq:`sumTaylor`.
 The way velocity is treated in the Verlet algorithm can be inconvenient for the determination of 
-velocity dependent quantities such as kinetic energy. The position and velocity can be brought 
-in step by a reformulation of the Verlet scheme, called velocity Verlet. The prediction of the 
-positions is now simply obtained from the Taylor expansion of Equation :eq:`forwardTaylor`,
-keeping up to the second order (force) term:
+velocity dependent quantities such as kinetic energy. 
 
+Velocity Verlet algorithm
+---------------------------------
+The position and velocity can be brought in step by a reformulation of the Verlet scheme, 
+called ``velocity Verlet``. The prediction of the positions is now simply obtained from the Taylor 
+expansion of Equation :eq:`forwardTaylor`, keeping up to the second order (force) term:
 
 .. math::
-    :label: secondOrder
+    :label: forwardTaylor2
 
     \mathbf{r}_i(t + \delta t)=\mathbf{r}_i(t)+\delta t \mathbf{v}_i(t)+\frac{\delta t^2}{2m_i} \mathbf{f}_i(t).
+
+From the advanced position we compute the force at time :math:`t + \delta t`
+
+.. math::
+    :label: force
+
+    \mathbf{f}_i(t + \delta t)=\mathbf{f}_i \left[\mathbf{r}_i(t)+\delta t \mathbf{v}_i(t)+\frac{\delta t^2}{2m_i} \mathbf{f}_i(t)\right],
+
+substitute in the Taylor expansion :math:`t \leftarrow t + \delta t` backward in time using the advanced 
+time :math:`t + \delta t` as reference
+
+.. math::
+    :label: backwardTaylor2
+
+    \mathbf{r}_i(t)=\mathbf{r}_i(t + \delta t)+\delta t \mathbf{v}_i(t + \delta t)+\frac{\delta t^2}{2m_i} \mathbf{f}_i(t + \delta t),
+
+and add this to the forward expansion Equation :eq:`forwardTaylor` to yield the prediction of the velocity
+
+.. math::
+    :label: velocityVVerlet
+
+    \mathbf{v}_i(t + \delta t)=\mathbf{v}_i(t)+\frac{\delta t^2}{2m_i}[\mathbf{f}_i(t)+\mathbf{f}_i(t+\delta t)],
+
+which then can be used together with the prediction of the positions in Equation :eq:`forwardTaylor`
+in the next step. 
+The (position) Verlet algorithm specified by Equations :eq:`sumTaylor` and :eq:`substractionTaylor`
+and the velocity Verlet scheme of Equations :eq:`forwardTaylor2` and :eq:`velocityVVerlet`
+may appear rather dissimilar. 
+They are, however equivalent, producing  exactly the same discrete trajectory in time. 
+This can be demonstrated by elimination of the velocity. Subtracting from the 
+:math:`t \rightarrow t + \delta t` the :math:`t -\delta t \rightarrow t` expansion, we find 
+
+.. math::
+    :label: checkStep1
+
+    \mathbf{r}_i(t + \delta t)-\mathbf{r}_i(t) = \mathbf{r}_i(t)-\mathbf{r}_i(t - \delta t)+\delta t [\mathbf{v}_i(t)-\mathbf{v}_i(t - \delta t)]+\frac{\delta t^2}{2m_i} [\mathbf{f}_i(t) - \mathbf{f}_i(t - \delta t)].
+
+Next the :math:`t -\delta t \rightarrow t` update for velocity
+
+.. math::
+    :label: checkStep2
+
+    \mathbf{v}_i(t)=\mathbf{v}_i(t-\delta t)+\frac{\delta t^2}{2m_i}[\mathbf{f}_i(t-\delta t)+\mathbf{f}_i(t)]
+
+is inserted in Equation :eq:`checkStep1` giving 
+
+.. math::
+    :label: checkStep3
+
+    \mathbf{r}_i(t+\delta t)-\mathbf{r}_i(t)=\mathbf{r}_i(t)-\mathbf{r}_i(t-\delta t)+\frac{\delta t^2}{m_i} \mathbf{f}_i(t),
+
+which indeed is identical to the prediction of Equation :eq:`sumTaylor` according to the Verlet scheme 
+without explicit velocities. 
+
+
+Leap-frog algorithm
+---------------------------------
+A modification of the Verlet algorithm predating velocity Verlet which also makes explicit use of 
+velocity as iteration variable is the ``leap-frog algorithm``. In this scheme the position and velocity 
+are a half time step out of step. The velocities as half integer time are defined as
+
+.. math::
+    :label: velocitiesleapfrog
+
+    \mathbf{v}_i (t-\delta t/2) = \frac{\mathbf{r}_i(t)-\mathbf{r}_i(t-\delta t)}{\delta t}, \\
+    \mathbf{v}_i (t+\delta t/2) = \frac{\mathbf{r}_i(t+\delta t)-\mathbf{r}_i(t)}{\delta t}.
+
+Based on these definitions the following sequence of update steps is used to propagate position 
+and velocity, one ``leaping`` over the other with a full time step:
+
+.. math::
+    :label: leapfrog
+
+    \mathbf{v}_i (t+\delta t/2) =\mathbf{v}_i (t-\delta t/2)+ \frac{\delta t}{m_i} \mathbf{f}_i(t), \\
+    \mathbf{r}_i(t+ \delta t)= \mathbf{r}_i(t) + \delta t \mathbf{v}_i (t+\delta t/2).
+
+The velocity at time :math:`t+\delta t` is calculated by adding the velocities at time :math:`t-\delta t/2`
+and :math:`t+\delta t/2` and dividing by two.
+
+.. math::
+    :label: velocitiesleapfrog2
+
+    \mathbf{v}_i(t)=\frac{1}{2}(\mathbf{v}_i(t+\delta t /2)+ \mathbf{v}_i(t-\delta t /2)).
 
