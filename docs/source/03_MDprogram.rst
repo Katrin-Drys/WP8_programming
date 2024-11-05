@@ -46,7 +46,7 @@ The MD schemes we will discuss all use the Cartesian representation. There are, 
 for preferring this description for the chaotic interaction many body systems which are the subject 
 of statical mechanics.
 
- Verlet algorithm
+Verlet algorithm
 ---------------------------------
 A very important algorithm in MD is the ``Verlet algorithm``. The Verlet algorithm is based on a clever
 combination of the Taylor expansion of the position of a particle forward and backward in time.
