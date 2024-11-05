@@ -194,5 +194,9 @@ Implementing a Velocity Verlet algorithm for a Harmonic Oscillator
 It is always useful to start with a simple physical problem when developing a new algorithm.
 By doing that, we can easily test the algorithm and check whether it reproduces the expected results.
 In this case, we will implement the Velocity Verlet algorithm for a harmonic oscillator.
-As a starting point, rewrite your fcc program into a subroutine and call this subroutinre
+As a starting point, rewrite your fcc program into a subroutine and call this subroutine
 within a program, which will from now on be your main program.
+Once you have managed to create the fcc box via the main program, the next step is to
+develop a MD program for the harmonic oscillator by calculating the forces and the potential
+energy. 
+
