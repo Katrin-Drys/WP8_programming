@@ -50,10 +50,20 @@ The logic of the verlet algorithm
 ---------------------------------
 A very important algorithm in MD is the Verlet algorithm. The Verlet algorithm is based on a clever
 combination of the Taylor expansion of the position of a particle forward and backward in time.
-The third order Taylor expansion of the position of a particle is given by:
+The third order Taylor expansion for the position :math:`r_i` of a particle at time :math:`t + \delta t`
+is given by:
 
 .. math::
     :label: forwardTaylor
 
     \mathbf{r}_i(t + \delta t)=\mathbf{r}_i(t)+\delta t \mathbf{v}_i(t)+\frac{\delta t^2}{2m_i} \mathbf{f}_i(t)+\frac{\delta t^3}{6} \mathbf{b}_i(t)+O(\delta t^4)
+
+where we have used the familiar symbol :math:`\mathbf{v}_i` for the velocity :math:`\dot{\mathbf{r}}` of 
+particle *i* and have inserted the equation of motion in the second order term. If Equation 
+:eq:`forwardTaylor` and the equivalent approximation for :math:`t - \delta t`
+
+.. math::
+    :label: backwardTaylor
+
+    \mathbf{r}_i(t - \delta t)=\mathbf{r}_i(t)-\delta t \mathbf{v}_i(t)+\frac{\delta t^2}{2m_i} \mathbf{f}_i(t)-\frac{\delta t^3}{6} \mathbf{b}_i(t)+O(\delta t^4)
 
