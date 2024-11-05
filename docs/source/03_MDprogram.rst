@@ -86,5 +86,20 @@ This gives the expression:
 
     \mathbf{v}_i(t)=\frac{1}{2 \delta t}[\mathbf{r}_i(t + \delta t)-\mathbf{r}_i(t - \delta t)]+O(\delta t^3),
 
+from which the explicit dependence of the forces has been eliminated. The velocity obtained by 
+Equations :eq:`substractionTaylor` is the current value at time *t*. Therefore, the velocity 
+update in the Verlet algorithm is one step behind the position update. This is not a problem 
+for propagating positions, because assuming that the forces are not dependent on the velocity, 
+information on :math:`\mathbf{v}_i(t)` is not needed in Equation :eq:`sumTaylor`.
+The way velocity is treated in the Verlet algorithm can be inconvenient for the determination of 
+velocity dependent quantities such as kinetic energy. The position and velocity can be brought 
+in step by a reformulation of the Verlet scheme, called velocity Verlet. The prediction of the 
+positions is now simply obtained from the Taylor expansion of Equation :eq:`forwardTaylor`,
+keeping up to the second order (force) term:
 
-    
+
+.. math::
+    :label: secondOrder
+
+    \mathbf{r}_i(t + \delta t)=\mathbf{r}_i(t)+\delta t \mathbf{v}_i(t)+\frac{\delta t^2}{2m_i} \mathbf{f}_i(t).
+
