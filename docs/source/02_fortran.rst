@@ -553,6 +553,16 @@ that you used so far.
     If you define modules, you can even write the code into separate files and include them in your program
     using the ``use`` statement.
 
+    If you dicide to keep the subroutines in a separate file, you need to compile the module first.
+    In this example, the following steps are necessary:
+
+    .. code-block:: bash
+
+        gfortran -c FileNameModule.f90
+        gfortran -c FileNameProgram.f90
+        gfortran FileNameModule.o FileNameProgram.o -o MyProgram
+        ./MyProgram
+
 Let's proceed with another exercise.
 
 .. admonition:: Exercise 5
