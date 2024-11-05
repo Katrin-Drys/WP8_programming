@@ -201,7 +201,7 @@ develop a MD program for the harmonic oscillator by calculating the forces and t
 energy. 
 
 .. figure:: figures/HO.svg
-    :width: 500
+    :width: 400
     :align: center
 
     Harmonic oscillator. 
