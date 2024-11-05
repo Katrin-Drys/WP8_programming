@@ -284,8 +284,10 @@ Let's look at a program that calculates the sum of the first 10 natural numbers.
     Write a program that calculates the factorial of a number (n!) using a do loop.
 
 
-Conditional statements (if then else)
---------------------------------------
+Conditional statements 
+----------------------------
+if then else
+~~~~~~~~~~~~~~~~
 Frequently, we need to test for a certain fact or condition and take one or the other action
 accordingly. An example is the convergence of a calculation (which would lead to a termination
 of the program) or a wrong input (which would result in aborting the program early). Virtually
