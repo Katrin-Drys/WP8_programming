@@ -203,6 +203,5 @@ energy.
 .. figure:: figures/HO.pdf
     :width: 500
     :align: center
-    :alt: Harmonic Oscillator
 
     Harmonic oscillator. 
