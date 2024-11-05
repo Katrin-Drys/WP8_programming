@@ -200,7 +200,7 @@ Once you have managed to create the fcc box via the main program, the next step 
 develop a MD program for the harmonic oscillator by calculating the forces and the potential
 energy. 
 
-.. figure:: figures/HO.svg
+.. figure:: figures/ho.svg
     :width: 400
     :align: center
 
