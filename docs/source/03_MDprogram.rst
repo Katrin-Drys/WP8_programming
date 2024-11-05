@@ -67,3 +67,24 @@ particle *i* and have inserted the equation of motion in the second order term. 
 
     \mathbf{r}_i(t - \delta t)=\mathbf{r}_i(t)-\delta t \mathbf{v}_i(t)+\frac{\delta t^2}{2m_i} \mathbf{f}_i(t)-\frac{\delta t^3}{6} \mathbf{b}_i(t)+O(\delta t^4)
 
+are added we obtain a prediction for the position :math:`r_i` of the particle at time :math:`t + \delta t`:
+
+.. math::
+    :label: sumTaylor
+
+    \mathbf{r}_i(t + \delta t)=2\mathbf{r}_i(t)-\mathbf{r}_i(t - \delta t)+\frac{\delta t^2}{m_i} \mathbf{f}_i(t)+O(\delta t^4).
+
+Note that the accuracy of the prediction is third order in time, i.e., one order better than of the Taylor 
+Equations :eq:`forwardTaylor` and :eq:`backwardTaylor`. This gain in accuracy was achieved by cancellation of odd powers in 
+time, including the first order term depending on the velocity :math:`\mathbf{v}_i(t)`.
+The velocity :math:`\mathbf{v}_i(t)` is obtained in the Verlet algorithm by substraction of the 
+forward Taylor expansion :eq:`forwardTaylor` from the backward Taylor expansion :eq:`backwardTaylor`.
+This gives the expression:
+
+.. math::
+    :label: substractionTaylor
+
+    \mathbf{v}_i(t)=\frac{1}{2 \delta t}[\mathbf{r}_i(t + \delta t)-\mathbf{r}_i(t - \delta t)]+O(\delta t^3),
+
+
+    
