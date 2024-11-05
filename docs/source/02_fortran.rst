@@ -1,3 +1,5 @@
+What is the purpose of programming?
+-----------------------------------
 Programming is the art of precisely telling a computer what to do, usually to perform an 
 action or solve a problem which would be too difficult to do by hand. It thus involves the 
 following steps: 
