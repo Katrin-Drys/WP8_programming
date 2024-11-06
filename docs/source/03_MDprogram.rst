@@ -215,7 +215,7 @@ We can implement this like this:
 .. code-block:: fortran
 
     ...
-    real*8, dimension(3, natom) :: fatom
+        real*8, dimension(3, natom) :: fatom
         do i = 1, natom
             fatom(:, i) = -k * coord(:, i)
         end do
@@ -231,3 +231,6 @@ The potential energy is given by :math:`V = \frac{1}{2}kx^2`.
             pot_harm = pot_harm + 0.5d0 * k * sum(coord(:, i)**2)
         end do
     ...
+
+Write these two Codes as subroutines as well. The next step is to implement the Velocity Verlet algorithm
+in order to propagate the particles in time.
