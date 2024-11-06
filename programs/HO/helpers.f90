@@ -3,16 +3,16 @@ module helpers
     contains 
 
         ! This subroutine generates the positions of the Argon atoms in a FCC grid
-        subroutine FCC_grid(natom, l)
+        subroutine FCC_grid(natom, l, coord)
             implicit none
         
-            integer, intent(in) :: natom            ! Number of atoms
-            real*8, intent(in) :: l                 ! Side length of the cubic box
+            integer, intent(in) :: natom                            ! Number of atoms
+            real*8, intent(in) :: l                                 ! Side length of the cubic box
+            real*8, dimension(3,natom), intent(out) :: coord        ! Position of the atoms
 
             integer :: nlp                                          ! Number of lattice points per side
             integer :: counter, i, j, k           
             real*8 :: hl, dl                                        ! Half length and distance between atoms
-            real*8, dimension(3,natom) :: coord                     ! Position of the atoms
         
             ! Number of atoms in fcc : 4 atoms per unit cell
             ! Number of unit cells = natom / 4 = 108 / 4 = 27
@@ -22,7 +22,6 @@ module helpers
         
             hl = l / 2.0d0
             nlp = int((natom / 4.0d0)**(1.0d0/3.0d0))
-            write(*,*) 'Number of lattice points per side = ', nlp
         
             if ((nlp*4)**3 < natom) then
                 nlp = nlp + 1
@@ -84,4 +83,39 @@ module helpers
             end do
             close(14)
         end subroutine FCC_grid
+
+        ! Force calculation
+        subroutine calc_force(natom, coord, fatom)
+            implicit none
+
+            integer, intent(in) :: natom
+            real*8, dimension(3,natom), intent(in) :: coord
+            real*8, dimension(3,natom), intent(out) :: fatom
+            integer :: k = 5
+
+            integer :: i
+
+            do i = 1, natom
+                fatom(:, i) = -k * coord(:, i)
+            end do
+        end subroutine calc_force
+
+        ! Potential energy calculation
+        subroutine calc_pot(natom, coord, Epot)
+            implicit none
+
+            integer, intent(in) :: natom
+            real*8, dimension(3,natom), intent(in) :: coord
+            real*8, intent(out) :: Epot
+            integer :: k = 5
+
+            integer :: i
+
+            Epot = 0.0d0
+            do i = 1, natom
+                Epot = Epot + 0.5d0 * k * sum(coord(:, i)**2)
+            end do
+
+        end subroutine calc_pot
+
 end module helpers

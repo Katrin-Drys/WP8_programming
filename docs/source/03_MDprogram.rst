@@ -97,7 +97,7 @@ velocity dependent quantities such as kinetic energy.
 Velocity Verlet algorithm
 ---------------------------------
 The position and velocity can be brought in step by a reformulation of the Verlet scheme, 
-called ``velocity Verlet``. The prediction of the positions is now simply obtained from the Taylor 
+called ``Velocity Verlet``. The prediction of the positions is now simply obtained from the Taylor 
 expansion of Equation :eq:`forwardTaylor`, keeping up to the second order (force) term:
 
 .. math::
@@ -208,7 +208,7 @@ energy.
 
 In the case of a harmonic oscillator, the force depends linearly on the 
 displacement from the equilibrium position, which, in our case, is the origin.
-The force is given by :math:`F = -kx`, where :math:`k` is the force constant and :math:`x` is the
+The ``force`` is given by :math:`F = -kx`, where :math:`k` is the force constant and :math:`x` is the
 displacement from the equilibrium position. The force constant :math:`k` can be set to 5 in our case.
 We can implement this in the following way:
 
@@ -221,7 +221,7 @@ We can implement this in the following way:
         end do
     ...
 
-The potential energy is given by :math:`V = \frac{1}{2}kx^2`.
+The ``potential energy`` of the system is given by :math:`V = \frac{1}{2}kx^2`.
 
 .. code-block:: fortran
 
@@ -234,3 +234,10 @@ The potential energy is given by :math:`V = \frac{1}{2}kx^2`.
 
 Write these two Codes as subroutines as well. The next step is to implement the Velocity Verlet algorithm
 in order to propagate the particles in time.
+We will write the Verlet algorithm as a subroutine of our main program, and within that routine, 
+we will call the force and potential energy subroutines from above.
+
+.. code-block:: fortran
+
+    ...
+        real*8, dimension(3, natom) :: 
