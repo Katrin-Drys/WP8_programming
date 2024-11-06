@@ -190,7 +190,7 @@ and :math:`t+\delta t/2` and dividing by two.
 
 
 Implementing a Velocity Verlet algorithm for a Harmonic Oscillator
--------------------------------------------------------------------
+==================================================================
 It is always useful to start with a simple physical problem when developing a new algorithm.
 By doing that, we can easily test the algorithm and check whether it reproduces the expected results.
 In this case, we will implement the Velocity Verlet algorithm for a harmonic oscillator.
