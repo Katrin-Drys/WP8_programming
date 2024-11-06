@@ -210,7 +210,7 @@ In the case of a harmonic oscillator, the force depends linearly on the
 displacement from the equilibrium position, which, in our case, is the origin.
 The force is given by :math:`F = -kx`, where :math:`k` is the force constant and :math:`x` is the
 displacement from the equilibrium position. The force constant :math:`k` can be set to 5 in our case.
-We can implement this like this:
+We can implement this in the following way:
 
 .. code-block:: fortran
 
