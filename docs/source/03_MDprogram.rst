@@ -205,3 +205,29 @@ energy.
     :align: center
 
     Harmonic oscillator. 
+
+In the case of a harmonic oscillator, the force depends linearly on the 
+displacement from the equilibrium position, which, in our case, is the origin.
+The force is given by :math:`F = -kx`, where :math:`k` is the force constant and :math:`x` is the
+displacement from the equilibrium position. The force constant :math:`k` can be set to 5 in our case.
+We can implement this like this:
+
+.. code-block:: fortran
+
+    ...
+    real*8, dimension(3, natom) :: fatom
+        do i = 1, natom
+            fatom(:, i) = -k * coord(:, i)
+        end do
+    ...
+
+The potential energy is given by :math:`V = \frac{1}{2}kx^2`.
+
+.. code-block:: fortran
+
+    ...
+        real*8 :: pot_harm = 0.0
+        do i = 1, natom
+            pot_harm = pot_harm + 0.5d0 * k * sum(coord(:, i)**2)
+        end do
+    ...
