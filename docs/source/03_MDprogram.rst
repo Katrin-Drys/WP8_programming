@@ -196,6 +196,7 @@ By doing that, we can easily test the algorithm and check whether it reproduces 
 In this case, we will implement the Velocity Verlet algorithm for a harmonic oscillator.
 As a starting point, rewrite your fcc program into a subroutine and call this subroutine
 within a program, which will from now on be your main program.
+You can either store the fcc subroutine in a module in another file or include it in the same file as the main program.
 Once you have managed to create the fcc box via the main program, the next step is to
 develop a MD program for the harmonic oscillator by calculating the forces and the potential
 energy. 
@@ -234,10 +235,45 @@ The ``potential energy`` of the system is given by :math:`V = \frac{1}{2}kx^2`.
 
 Write these two Codes as subroutines as well. The next step is to implement the Velocity Verlet algorithm
 in order to propagate the particles in time.
-We will write the Verlet algorithm as a subroutine of our main program, and within that routine, 
+We will write the Verlet algorithm into the main program, and within that program, 
 we will call the force and potential energy subroutines from above.
 
 .. code-block:: fortran
 
     ...
-        real*8, dimension(3, natom) :: 
+        integer, parameter :: itime = 1000, natom = 108
+        real*8, parameter :: m = 39.948d0, dt = 0.05d0, l = 17.158d0
+    
+        real*8, dimension(3, natom) :: coord, vatom, fatom
+        real*8 :: Epot, Ekin, Etot
+
+        call calc_force(natom, coord, fatom)
+        call calc_pot(natom, coord, Epot)
+
+        vatom = 0.0d0
+
+        ! Main loop
+        do run = 1, itime
+            do i = 1, natom
+                vatom(:,i) = vatom(:,i) + 0.5d0 * dt * fatom(:,i) / m
+                coord(:,i) = coord(:,i) + dt * vatom(:,i)
+            end do
+
+            call calc_force(natom, coord, fatom)
+
+            Ekin = 0.0d0
+            do i = 1, natom
+                vatom(:,i) = vatom(:,i) + 0.5d0 * dt * fatom(:,i) / m
+                Ekin = Ekin + 0.5d0 * m * sum(vatom(:,i)**2)
+            end do
+
+            call calc_pot(natom, coord, Epot)
+            Etot = Ekin + Epot
+        end do
+    ...
+
+Use the following parameters as given: ``Number of particles = 108``; ``mass of particles = 39.948``; 
+``dimension of simulation box = 17.158``; ``number of iterations = 1000``; ``length of time step = 0.05``. 
+After including all steps and parameters into your main program try to write out a trajectory 
+and describe what you observe. Write also out the development of the kinetic, potential and 
+total energy per timestep.
