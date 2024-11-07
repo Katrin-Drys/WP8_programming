@@ -91,12 +91,15 @@ module helpers
             integer, intent(in) :: natom
             real*8, dimension(3,natom), intent(in) :: coord
             real*8, dimension(3,natom), intent(out) :: fatom
-            integer :: k = 5
+            real*8 :: k = 5.0d0
 
-            integer :: i
+            integer :: i, j
 
+            write(15,*) natom
+            write(15,*) ''
             do i = 1, natom
                 fatom(:, i) = -k * coord(:, i)
+                write(15,*) 'Ar', coord(:, i)
             end do
         end subroutine calc_force
 
@@ -107,7 +110,7 @@ module helpers
             integer, intent(in) :: natom
             real*8, dimension(3,natom), intent(in) :: coord
             real*8, intent(out) :: Epot
-            integer :: k = 5
+            real*8 :: k = 5.0d0
 
             integer :: i
 
