@@ -319,7 +319,7 @@ We then test if ``n`` is positive and print the result.
 To check if a number is equal to another number, you can use the ``==`` operator, not the ``=`` operator!
 The ``==`` operator is used for comparison, while the ``=`` operator is used for assignment.
     
-Cycle and exit
+cycle and exit
 ~~~~~~~~~~~~~
 Sometimes you want to skip the rest of the loop and start the next iteration, or you want to exit the loop
 completely. This can be done using the ``cycle`` and ``exit`` statements.

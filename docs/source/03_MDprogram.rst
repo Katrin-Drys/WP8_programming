@@ -297,7 +297,7 @@ After including all steps and parameters into your main program try to write out
 and describe what you observe. Write also out the development of the kinetic, potential and 
 total energy per timestep.
 
-
+.. _sec_Avg:
 Time averages, ensemble averages, and temperature
 =================================================
 The sequence of positions :math:`\mathbf{r}^N(t_m)` and velocities :math:`\mathbf{v}^N(t_m)` at the 
@@ -467,4 +467,20 @@ The deeper significance of the thermal wavelength :math:`\Lambda` is that it pro
 for the approach to the classical limit.
 Quantum effects can be ignored in equilibrium statistics if :math:`\Lambda` is smaller than any 
 characteristic length in the system.
+
+
+temperature in MD and how to control it
+=======================================
+Temperature was introduced in  Section:ref:`_sec_Avg` as a parameter in the exponent of the canonical 
+ensemble distribution function Eq.~(23). Via the fundamental Eq.~(26) this statistical 
+temperature could be identified with the empirical temperature of classical thermodynamics. 
+It is not immediately obvious, however, how to use these concepts to define and measure 
+temperature in an MD simulation. For this we have to return to the microcanonical ensemble 
+and find an observable (phase function) $\mathcal{T}$ for which the microcanonical expectation 
+value is a simple function of temperature, preferably linear. This temperature could then also 
+be measured by determining the time average of the phase function $\mathcal{T}$ over a sufficiently 
+long period, because Eq.~(5) allows us to equate the time average and microcanonical ensemble average. 
+In fact, this is very much how real thermometers work. For classical systems there is such a phase 
+function, namely kinetic energy. The canonical average of kinetic energy is particularly easy to 
+compute (see e.g Eq.~(34))
 
