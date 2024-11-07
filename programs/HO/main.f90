@@ -6,8 +6,10 @@ program main
     real*8, parameter :: m = 39.948d0      
     real*8, parameter :: dt = 0.05d0 
     integer, parameter :: natom = 108       
-    real*8, parameter :: l = 17.158d0     
+    real*8, parameter :: l = 17.158d0  
+    integer, parameter :: Treq = 8   
 
+    real*8 :: T 
     real*8, dimension(3,natom) :: coord     
     real*8, dimension(3,natom) :: vatom             
     real*8, dimension(3,natom) :: fatom
@@ -46,6 +48,10 @@ program main
             vatom(:, i) = vatom(:, i) + 0.5d0 * dt * fatom(:, i) / m
             Ekin = Ekin + 0.5d0 * m * sum(vatom(:, i)**2)
         end do    
+
+        ! Scale the temperature
+        if (run == 1) then
+            T 
         
         call calc_pot(natom, coord, Epot)
         Etot = Ekin + Epot
