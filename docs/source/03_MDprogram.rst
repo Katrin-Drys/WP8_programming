@@ -276,6 +276,7 @@ we will call the force and potential energy subroutines from above.
     ...
 
 Use the following parameters as given: 
+
 +-----------------------------+-------------------------+
 | Parameter                   | Value                   |
 +=============================+=========================+
@@ -291,6 +292,11 @@ Use the following parameters as given:
 +-----------------------------+-------------------------+
 | Force constant              | 5                       |
 +-----------------------------+-------------------------+
+
 After including all steps and parameters into your main program try to write out a trajectory 
 and describe what you observe. Write also out the development of the kinetic, potential and 
 total energy per timestep.
+
+
+Time averages, ensemble averages, and temperature
+=================================================
