@@ -472,15 +472,15 @@ characteristic length in the system.
 Temperature in MD and how to control it
 =======================================
 Temperature was introduced in the previous section as a parameter in the exponent of the canonical 
-ensemble distribution function Equation :math:`NVTPhaseFunction`. Via the fundamental 
-Equation :eq:`Helmholtz`` this statistical temperature could be identified with the empirical 
+ensemble distribution function Equation :eq:`NVTPhaseFunction`. Via the fundamental 
+Equation :eq:`Helmholtz` this statistical temperature could be identified with the empirical 
 temperature of classical thermodynamics. 
 It is not immediately obvious, however, how to use these concepts to define and measure 
 temperature in an MD simulation. For this we have to return to the ``microcanonical ensemble`` 
 and find an observable (phase function) :math:`\mathcal{T}` for which the microcanonical expectation 
 value is a simple function of temperature, preferably linear. This temperature could then also 
 be measured by determining the time average of the phase function :math:`\mathcal{T}` over a sufficiently 
-long period, because Equation :math:`NVEPhaseFunction` allows us to equate the time average and microcanonical ensemble average. 
+long period, because Equation :eq:`NVEPhaseFunction` allows us to equate the time average and microcanonical ensemble average. 
 In fact, this is very much how real thermometers work. For classical systems there is such a phase 
 function, namely kinetic energy. The canonical average of kinetic energy is particularly easy to 
 compute.
