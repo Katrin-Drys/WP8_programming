@@ -214,6 +214,7 @@ displacement from the equilibrium position. The force constant :math:`k` can be 
 We can implement this in the following way:
 
 .. code-block:: fortran
+    :lineons:
 
     ...
         real*8, dimension(3, natom) :: fatom
@@ -225,6 +226,7 @@ We can implement this in the following way:
 The ``potential energy`` of the system is given by :math:`V = \frac{1}{2}kx^2`.
 
 .. code-block:: fortran
+    :lineons:
 
     ...
         real*8 :: pot_harm = 0.0
@@ -233,12 +235,13 @@ The ``potential energy`` of the system is given by :math:`V = \frac{1}{2}kx^2`.
         end do
     ...
 
-Write these two Codes as subroutines as well. The next step is to implement the Velocity Verlet algorithm
+Write these two Codes as subroutines as well. The next step is to implement the ``Velocity Verlet`` algorithm
 in order to propagate the particles in time.
-We will write the Verlet algorithm into the main program, and within that program, 
+We will write the Velocity Verlet algorithm into the main program, and within that program, 
 we will call the force and potential energy subroutines from above.
 
 .. code-block:: fortran
+    :lineons:
 
     ...
         integer, parameter :: itime = 1000, natom = 108
@@ -272,8 +275,22 @@ we will call the force and potential energy subroutines from above.
         end do
     ...
 
-Use the following parameters as given: ``Number of particles = 108``; ``mass of particles = 39.948``; 
-``dimension of simulation box = 17.158``; ``number of iterations = 1000``; ``length of time step = 0.05``. 
+Use the following parameters as given: 
++-----------------------------+-------------------------+
+| Parameter                   | Value                   |
++=============================+=========================+
+| Number of particles         | 108                     |
++-----------------------------+-------------------------+
+| Mass of particles (amu)     | 39.948                  |
++-----------------------------+-------------------------+
+| Length of simulation box (Å)| 17.158                  |
++-----------------------------+-------------------------+
+| Number of iterations        | 1000                    |
++-----------------------------+-------------------------+
+| Length of time step         | 0.05                    |
++-----------------------------+-------------------------+
+| Force constant              | 5                       |
++-----------------------------+-------------------------+
 After including all steps and parameters into your main program try to write out a trajectory 
 and describe what you observe. Write also out the development of the kinetic, potential and 
 total energy per timestep.
