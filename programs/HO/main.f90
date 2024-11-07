@@ -9,7 +9,7 @@ program main
     real*8, parameter :: l = 17.158d0     
 
     real*8, dimension(3,natom) :: coord     
-    real*8, dimension(3,natom) :: v             
+    real*8, dimension(3,natom) :: vatom             
     real*8, dimension(3,natom) :: fatom
     real*8 :: Epot, Ekin, Etot
     integer :: i, j, run
@@ -18,9 +18,11 @@ program main
     call FCC_grid(natom, l, coord)
 
     ! -------  Velocity Verlet algorithm   ------- !
-    v = 0.0d0
-    fatom = 0.0d0
+    vatom = 0.0d0
     Ekin = 0.0
+
+    call calc_force(natom, coord, fatom)
+    call calc_pot(natom, coord, Epot)
 
     open(15, file='trajectory.xyz')
     open(16, file='energy.txt')
@@ -30,8 +32,8 @@ program main
     do run = 1, itime
         do i=1,natom
             ! Equation (6)
-            v(:,i) = v(:,i) + 0.5d0*fatom(:,i)*dt/m
-            coord(:,i) = coord(:,i) + dt * v(:,i)
+            vatom(:,i) = vatom(:,i) + 0.5d0*fatom(:,i)*dt/m
+            coord(:,i) = coord(:,i) + dt * vatom(:,i)
         end do
 
         ! Equation (7)
@@ -41,8 +43,8 @@ program main
 
         do i = 1, natom
             ! Equation (9)
-            v(:, i) = v(:, i) + 0.5d0 * dt * fatom(:, i) / m
-            Ekin = Ekin + 0.5d0 * m * sum(v(:, i)**2)
+            vatom(:, i) = vatom(:, i) + 0.5d0 * dt * fatom(:, i) / m
+            Ekin = Ekin + 0.5d0 * m * sum(vatom(:, i)**2)
         end do    
         
         call calc_pot(natom, coord, Epot)
