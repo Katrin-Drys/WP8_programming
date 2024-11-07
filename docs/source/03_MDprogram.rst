@@ -297,7 +297,7 @@ After including all steps and parameters into your main program try to write out
 and describe what you observe. Write also out the development of the kinetic, potential and 
 total energy per timestep.
 
-.. _sec_Avg:
+
 Time averages, ensemble averages, and temperature
 =================================================
 The sequence of positions :math:`\mathbf{r}^N(t_m)` and velocities :math:`\mathbf{v}^N(t_m)` at the 
@@ -469,18 +469,59 @@ Quantum effects can be ignored in equilibrium statistics if :math:`\Lambda` is s
 characteristic length in the system.
 
 
-temperature in MD and how to control it
+Temperature in MD and how to control it
 =======================================
-Temperature was introduced in  Section:ref:`_sec_Avg` as a parameter in the exponent of the canonical 
-ensemble distribution function Eq.~(23). Via the fundamental Eq.~(26) this statistical 
-temperature could be identified with the empirical temperature of classical thermodynamics. 
+Temperature was introduced in the previous section as a parameter in the exponent of the canonical 
+ensemble distribution function Equation :math:`NVTPhaseFunction`. Via the fundamental 
+Equation :eq:`Helmholtz`` this statistical temperature could be identified with the empirical 
+temperature of classical thermodynamics. 
 It is not immediately obvious, however, how to use these concepts to define and measure 
-temperature in an MD simulation. For this we have to return to the microcanonical ensemble 
-and find an observable (phase function) $\mathcal{T}$ for which the microcanonical expectation 
+temperature in an MD simulation. For this we have to return to the ``microcanonical ensemble`` 
+and find an observable (phase function) :math:`\mathcal{T}` for which the microcanonical expectation 
 value is a simple function of temperature, preferably linear. This temperature could then also 
-be measured by determining the time average of the phase function $\mathcal{T}$ over a sufficiently 
-long period, because Eq.~(5) allows us to equate the time average and microcanonical ensemble average. 
+be measured by determining the time average of the phase function :math:`\mathcal{T}` over a sufficiently 
+long period, because Equation :math:`NVEPhaseFunction` allows us to equate the time average and microcanonical ensemble average. 
 In fact, this is very much how real thermometers work. For classical systems there is such a phase 
 function, namely kinetic energy. The canonical average of kinetic energy is particularly easy to 
-compute (see e.g Eq.~(34))
+compute.
+
+.. math::
+    :label: kineticEnergy
+
+    \left< \sum^N_{i=1} \frac{{\bf{p}}_i^2}{2m_i} \right>_{NVT} = \frac{3}{2}Nk_\text{B}T
+
+The microcanonical average :math:`\left< \dots\right>_{NVE}` of Equation :math:`NVEPhaseFunction`
+and canonical average of Equation :math:`NVTPhaseFunction` of a quantitative are not identical. 
+In statistical mechanics it is shown that for properties such as kinetic energy, the difference 
+is one order less in system size :math:`N`. 
+This implies that the fractional difference vanishes in the thermodynamic limit of very large :math:`N`.
+The microcanonical average of the kinetic energy of a many particle system, therefore, will also 
+be equal to :math:`\frac{3}{2}~Nk_\text{B}T`. Hence, we can define an instantaneous or kinetic 
+temperature function
+
+.. math::
+    :label: kineticTemperature
+
+    T = \frac{1}{3k_\text{B}N} \sum^N_{i=1} m_i\textbf{v}_i^2
+
+which, averaged over an MD run gives us the temperature of the system 
+
+.. math:: 
+    :label: systemTemp
+
+    T=\frac{1}{M} \sum^M_{m=1} T(t_m)
+
+The formal way we have introduced kinetic temperature, is clearly somewhat heavy and redundant 
+for such a simple propery. However, for other quantities, such as pressure, the relation between 
+``mechanical observable`` and their ``thermodynamic counterpart`` is less straightforward. Another 
+notorious example is temperature in quantum systems.
+
+After having found a method of measuring temperature in MD, the next problem is how to impose a 
+specified temperature on the system and control it during a simulation. Several approaches for 
+temperature control in MD have been developed, some more sophisticated and rigorous than others. 
+For the purpose of getting started, the most suitable algorithm is the simplest, and also the most 
+robust, namely ``temperature scaling``. The idea is to scale all particle velocities by a factor 
+determined from the ratio of the instantaneous kinetic temperature and the desired temperature. 
+We will illustrate this with the outline of a procedure appropriate for use with the 
+Velocity Verlet algorithm.
 
