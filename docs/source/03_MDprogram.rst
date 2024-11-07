@@ -405,7 +405,7 @@ The :math:`N!` takes account of the indistinguishability of the particles. It ca
 correcting for overcounting in the classical ensemble where permuting the position and 
 momentum of a pair of particles would lead to a different state (point) in phase space 
 :math:`{\bf{r}}^N,{\bf{p}}^N`.
-Multiplied with this $N$ dependent coefficient Equation :eq:`fN`, the normalization factors :math:`\Omega`
+Multiplied with this :math:`N` dependent coefficient Equation :eq:`fN`, the normalization factors :math:`\Omega`
 and :math:`Q_N` can be related to two very important thermodynamic quantities, namely :math:`\Omega` to 
 the Boltzmann entropy :math:`S`
 
@@ -428,7 +428,7 @@ are the central relations linking statistical mechanics to thermodynamics.
 The factor :math:`f(N)` played a crucial role in this identification. It is helpful not to 
 forget that the founding fathers of statistical mechanics arrived at these results without 
 the help of quantum mechanics. Arguments concerning the additivity of entropy of mixing 
-and similar considerations led them to postulate the form of the $N$ dependence. It was, 
+and similar considerations led them to postulate the form of the :math:`N` dependence. It was, 
 of course, not possible to guess the precise value of the effective volume of the microscopic 
 phase element :math:`h^{3N}`.
 Kinetic energy is a rather trivial quantity in (classical) statistical thermodynamics. 
@@ -443,7 +443,7 @@ system obtained by integrating over momenta in Equation :eq:`distributionNVT`.
     P_N\left( {\bf{r}}^N \right) &= \frac{1}{Z_N} \left[-\beta \mathcal{V} \left( {\bf{r}}^N \right) \right] \\
     Z_N &= \int d\left( {\bf{r}}^N \right) \text{exp} \left[-\beta \mathcal{V} \left( {\bf{r}}^N \right) \right]
 
-The configurational partition function $Z_N$ in Eq.~(27), is the integral of the Boltzmann 
+The configurational partition function :math:`Z_N` in Eq.~(27), is the integral of the Boltzmann 
 exponent :math:`\text{exp}\left[-\beta \mathcal{V} \left( {\bf{r}}^N \right) \right]` over 
 all configuration space. We deliberately wrote it in a form free of all reminants on 
 quantum theory. :math:`Z_N` is related to the canonical partition function :math:`Q_N` and the 
