@@ -462,8 +462,8 @@ where :math:`\Lambda` is the thermal wavelength
     \Lambda = \frac{h}{\sqrt{2\pi mk_\text{B}T}}
 
 The factor :math:`\Lambda^{3N}` is a temperature dependent volume element in configuration space.
-The deeper significance of the thermal wavelength :math:`\Lambda$ is that it provides a criterium 
+The deeper significance of the thermal wavelength :math:`\Lambda` is that it provides a criterium 
 for the approach to the classical limit.
-Quantum effects can be ignored in equilibrium statistics if $\Lambda$ is smaller than any 
+Quantum effects can be ignored in equilibrium statistics if :math:`\Lambda` is smaller than any 
 characteristic length in the system.
 
