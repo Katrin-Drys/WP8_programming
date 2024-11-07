@@ -44,7 +44,7 @@ Similar series are defined for the velocities of the particles, denoted by :math
 
 The MD schemes we will discuss all use the Cartesian representation. There are, in fact, good reasons 
 for preferring this description for the chaotic interaction many body systems which are the subject 
-of statical mechanics.
+of ``statical mechanics``.
 
 Verlet algorithm
 ---------------------------------
@@ -343,11 +343,11 @@ discrete points of the MD trajectory gives us a very good approximation to
 
     \bar{A}_{\Delta t} \cong \frac{1}{M} \sum^M_{m=1} A\left( t_m \right)
 
-Time averages also provide the connection to statistical mechanics through the ergodic principle.
+Time averages also provide the connection to statistical mechanics through the ``ergodic principle``.
 This principle states that time averages of ergodic systems, in the limit of trajectories of 
 infinite length :math:`\Delta t`, can be replaced by ensemble averages.
 Since the MD algorithms discussed so far (ideally) produce a trajectory at constant energy, 
-the appropriate ensemble for MD is the microcanonical ensemble.
+the appropriate ensemble for MD is the ``microcanonical ensemble``.
 
 .. math::
     :label: NVEPhaseFunction
@@ -368,10 +368,11 @@ manifold of accessible phase points :math:`{\bf{r}}^N,{\bf{p}}^N` to a hypersurf
 function of the number of particles, which can be omitted if we are only interested in the ensemble 
 distribution :math:`\rho_{NVE}`. This factor becomes crucial if we want to give the normalization 
 factor :math:`\Omega` a thermodynamical interpretation (see below).
+
 Condensed matter systems are hardly ever isolated. The least they do is exchanging energy 
 with their environment. In any textbook on the subject, it is shown that states of such a system, 
 in equilibrium with a thermal reservoir of temperature :math:`T`, are distributed according to the 
-canonical ensemble.
+``canonical ensemble``.
 
 .. math::
     :label: distributionNVT
@@ -407,14 +408,14 @@ momentum of a pair of particles would lead to a different state (point) in phase
 :math:`{\bf{r}}^N,{\bf{p}}^N`.
 Multiplied with this :math:`N` dependent coefficient Equation :eq:`fN`, the normalization factors :math:`\Omega`
 and :math:`Q_N` can be related to two very important thermodynamic quantities, namely :math:`\Omega` to 
-the Boltzmann entropy :math:`S`
+the ``Boltzmann entropy`` :math:`S`
 
 .. math::
     :label: Boltzmann
 
     S = k_\text{B} \text{ln}\Omega
 
-and :math:`Q_N` to the Helmholtz free energy :math:`A`.
+and :math:`Q_N` to the ``Helmholtz free energy`` :math:`A`.
 
 .. math::
     :label: Helmholtz
@@ -422,7 +423,7 @@ and :math:`Q_N` to the Helmholtz free energy :math:`A`.
     A = -k_\text{B}T \text{ln}Q_N
 
 where :math:`k_\text{B}` is Boltzmann's constant. The standard names for :math:`\Omega` and :math:`Q_N` are 
-the microcanonical respectively canonical partition function. 
+the microcanonical / canonical partition function respectively. 
 Equations :eq:`Boltzmann` and :eq:`Helmholtz` 
 are the central relations linking statistical mechanics to thermodynamics. 
 The factor :math:`f(N)` played a crucial role in this identification. It is helpful not to 
@@ -433,7 +434,7 @@ of course, not possible to guess the precise value of the effective volume of th
 phase element :math:`h^{3N}`.
 Kinetic energy is a rather trivial quantity in (classical) statistical thermodynamics. 
 The average per particle is, independently of interaction potential or mass, always equal 
-to :math:`3 / 2k_\text{B}T` (equipartition). The basic quantity of interest is the probability 
+to :math:`3 / 2~k_\text{B}T` (equipartition). The basic quantity of interest is the probability 
 distribution :math:`P_N\left( {\bf{r}}^N \right)` for the configuration :math:`{\bf{r}}^N` of the 
 system obtained by integrating over momenta in Equation :eq:`distributionNVT`.
 
@@ -443,7 +444,7 @@ system obtained by integrating over momenta in Equation :eq:`distributionNVT`.
     P_N\left( {\bf{r}}^N \right) &= \frac{1}{Z_N} \left[-\beta \mathcal{V} \left( {\bf{r}}^N \right) \right] \\
     Z_N &= \int d\left( {\bf{r}}^N \right) \text{exp} \left[-\beta \mathcal{V} \left( {\bf{r}}^N \right) \right]
 
-The configurational partition function :math:`Z_N` in Eq.~(27), is the integral of the Boltzmann 
+The configurational partition function :math:`Z_N` in Equation :math:`probDistib`, is the integral of the Boltzmann 
 exponent :math:`\text{exp}\left[-\beta \mathcal{V} \left( {\bf{r}}^N \right) \right]` over 
 all configuration space. We deliberately wrote it in a form free of all reminants on 
 quantum theory. :math:`Z_N` is related to the canonical partition function :math:`Q_N` and the 
@@ -459,7 +460,7 @@ where :math:`\Lambda` is the thermal wavelength
 .. math:: 
     :label: thermalWavelength
 
-    \Lambda = \frac{h}{\sqrt{2\pi mk_\text{B}T}}
+    \Lambda = \frac{h}{\sqrt{2\pi mk_\text{B}T}}.
 
 The factor :math:`\Lambda^{3N}` is a temperature dependent volume element in configuration space.
 The deeper significance of the thermal wavelength :math:`\Lambda` is that it provides a criterium 
