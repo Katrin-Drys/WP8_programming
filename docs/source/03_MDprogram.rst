@@ -472,7 +472,7 @@ characteristic length in the system.
 Temperature in MD and how to control it
 =======================================
 Temperature was introduced in the previous section as a parameter in the exponent of the canonical 
-ensemble distribution function Equation :eq:`NVTPhaseFunction`. Via the fundamental 
+ensemble distribution function, see Equation :eq:`NVTPhaseFunction`. Via the fundamental 
 Equation :eq:`Helmholtz` this statistical temperature could be identified with the empirical 
 temperature of classical thermodynamics. 
 It is not immediately obvious, however, how to use these concepts to define and measure 
