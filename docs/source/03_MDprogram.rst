@@ -359,7 +359,7 @@ manifold of accessible phase points :math:`{\bf{r}}^N,{\bf{p}}^N` to a hypersurf
 :math:`E` only.
 
 .. math::
-    :label: densNVE
+    :label: distributionNVE
 
     \rho_{NVE} \left({\bf{r}}^N,{\bf{p}}^N\right) &= \frac{f(N)}{\Omega}\delta\left[\mathcal{H}\left({\bf{r}}^N,{\bf{p}}^N\right)-E\right] \\
     \Omega & = f(N) \int d{\bf{r}}^Nd{\bf{p}}^N \delta\left[\mathcal{H}\left({\bf{r}}^N,{\bf{p}}^N\right)-E\right]
@@ -367,8 +367,103 @@ manifold of accessible phase points :math:`{\bf{r}}^N,{\bf{p}}^N` to a hypersurf
 :math:`\mathcal{H}` is the phase function, giving the total energy of the system. :math:`f(N)` is some
 function of the number of particles, which can be omitted if we are only interested in the ensemble 
 distribution :math:`\rho_{NVE}`. This factor becomes crucial if we want to give the normalization 
-factor :math:`\Omega` a thermodynamical interpretation (see below).\\
+factor :math:`\Omega` a thermodynamical interpretation (see below).
 Condensed matter systems are hardly ever isolated. The least they do is exchanging energy 
 with their environment. In any textbook on the subject, it is shown that states of such a system, 
-in equilibrium with a thermal reservoir of temperature $T$, are distributed according to the 
+in equilibrium with a thermal reservoir of temperature :math:`T`, are distributed according to the 
 canonical ensemble.
+
+.. math::
+    :label: distributionNVT
+
+    \rho_{NVT}\left({\bf{r}}^N,{\bf{p}}^N\right) &= \frac{f(N)}{Q_N} \text{exp}\left[-\frac{\mathcal{H}\left({\bf{r}}^N,{\bf{p}}^N\right)}{k_\text{B}T}  \right] \\
+    Q_N(V,T) &= f(N) \int d{\bf{r}}^N d{\bf{p}}^N \text{exp}\left[-\frac{\mathcal{H}\left({\bf{r}}^N,{\bf{p}}^N\right)}{k_\text{B}T}  \right]
+
+Canonical expectation values are exponentially weighted averaged over all points in phase space
+
+.. math::
+    :label: NVTPhaseFunction
+
+    \left< A \right>_{NVT} &= \int d{\bf{r}}^N d{\bf{p}}^N \rho_{NVT} \left({\bf{r}}^N,{\bf{p}}^N\right) \mathcal{A} \left({\bf{r}}^N,{\bf{p}}^N\right) \\
+    &= \frac{f(N)}{Q_N} \int d{\bf{r}}^N d{\bf{p}}^N \mathcal{A} \left({\bf{r}}^N,{\bf{p}}^N\right) \text{exp} \left[-\beta\mathcal{H}\left({\bf{r}}^N,{\bf{p}}^N\right) \right]
+
+where as usual :math:`\beta = 1 / k_\text{B}T`. The canonical ensemble also provides an easy route 
+to obtain the expression for the factor :math:`f(N)` by taking the classical limit of the quantum 
+canonical ensemble. If all :math:`N` particles are identical (of the same species) the result is
+
+ .. math::
+    :label: fN
+
+    f(N) = \left( h^{3N} N!\right)^{-1}
+
+where :math:`h` is Planck's constant. The dimension of :math:`h` is that of position :math:`\times` momentum. 
+:math:`f(N)` in Equation :eq:`fN` is therefore a (very small) reciprocal phase space volume which makes the 
+normalization factors of the ensembles in Equations :eq:`distributionNVE` and :eq:`distributionNVT`
+dimensionless quantities, i.e real numbers. Planck's constant acts therefore as an absolute measure 
+of phase space. 
+The :math:`N!` takes account of the indistinguishability of the particles. It can be viewed as 
+correcting for overcounting in the classical ensemble where permuting the position and 
+momentum of a pair of particles would lead to a different state (point) in phase space 
+:math:`{\bf{r}}^N,{\bf{p}}^N`.
+Multiplied with this $N$ dependent coefficient Equation :eq:`fN`, the normalization factors :math:`\Omega`
+and :math:`Q_N` can be related to two very important thermodynamic quantities, namely :math:`\Omega` to 
+the Boltzmann entropy :math:`S`
+
+.. math::
+    :label: Boltzmann
+
+    S = k_\text{B} \text{ln}\Omega
+
+and :math:`Q_N` to the Helmholtz free energy :math:`A`.
+
+.. math::
+    :label: Helmholtz
+
+    A = -k_\text{B}T \text{ln}Q_N
+
+where :math:`k_\text{B}` is Boltzmann's constant. The standard names for :math:`\Omega` and :math:`Q_N` are 
+the microcanonical respectively canonical partition function. 
+Equations :eq:`Boltzmann` and :eq:`Helmholtz` 
+are the central relations linking statistical mechanics to thermodynamics. 
+The factor :math:`f(N)` played a crucial role in this identification. It is helpful not to 
+forget that the founding fathers of statistical mechanics arrived at these results without 
+the help of quantum mechanics. Arguments concerning the additivity of entropy of mixing 
+and similar considerations led them to postulate the form of the $N$ dependence. It was, 
+of course, not possible to guess the precise value of the effective volume of the microscopic 
+phase element :math:`h^{3N}`.
+Kinetic energy is a rather trivial quantity in (classical) statistical thermodynamics. 
+The average per particle is, independently of interaction potential or mass, always equal 
+to :math:`3 / 2k_\text{B}T` (equipartition). The basic quantity of interest is the probability 
+distribution :math:`P_N\left( {\bf{r}}^N \right)` for the configuration :math:`{\bf{r}}^N` of the 
+system obtained by integrating over momenta in Equation :eq:`distributionNVT`.
+
+.. math::
+    :label: probDistib
+
+    P_N\left( {\bf{r}}^N \right) &= \frac{1}{Z_N} \left[-\beta \mathcal{V} \left( {\bf{r}}^N \right) \right] \\
+    Z_N &= \int d\left( {\bf{r}}^N \right) \text{exp} \left[-\beta \mathcal{V} \left( {\bf{r}}^N \right) \right]
+
+The configurational partition function $Z_N$ in Eq.~(27), is the integral of the Boltzmann 
+exponent :math:`\text{exp}\left[-\beta \mathcal{V} \left( {\bf{r}}^N \right) \right]` over 
+all configuration space. We deliberately wrote it in a form free of all reminants on 
+quantum theory. :math:`Z_N` is related to the canonical partition function :math:`Q_N` and the 
+free energy by
+
+.. math::
+    :label: ZNQN
+
+    \text{exp}\left[-A / k_\text{B}T\right] = Q_N = \left(N!\Lambda^{3N}\right)^{-1} Z_N
+
+where :math:`\Lambda` is the thermal wavelength
+
+.. math:: 
+    :label: thermalWavelength
+
+    \Lambda = \frac{h}{\sqrt{2\pi mk_\text{B}T}}
+
+The factor :math:`\Lambda^{3N}` is a temperature dependent volume element in configuration space.
+The deeper significance of the thermal wavelength :math:`\Lambda$ is that it provides a criterium 
+for the approach to the classical limit.
+Quantum effects can be ignored in equilibrium statistics if $\Lambda$ is smaller than any 
+characteristic length in the system.
+
