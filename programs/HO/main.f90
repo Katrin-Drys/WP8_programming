@@ -25,7 +25,7 @@ program main
 
     call calc_force(natom, coord, fatom)
     call calc_pot(natom, coord, Epot)
-
+    
     open(15, file='trajectory.xyz')
     open(16, file='energy.txt')
     write(16,*) 'run ', 'Ekin ', 'Epot ', 'Etot '
