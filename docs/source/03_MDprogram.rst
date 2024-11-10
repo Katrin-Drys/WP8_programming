@@ -530,7 +530,7 @@ Velocity Verlet algorithm.
 
 
 .. code-block:: fortran
-    :lineons:
+    :linenos:
 
     ...
         integer, parameter :: Treq = 8
