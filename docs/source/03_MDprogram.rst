@@ -413,14 +413,14 @@ the ``Boltzmann entropy`` :math:`S`
 .. math::
     :label: Boltzmann
 
-    S = k_\text{B} \text{ln}\Omega
+    S = k_\text{B}\ln{\Omega}
 
 and :math:`Q_N` to the ``Helmholtz free energy`` :math:`A`.
 
 .. math::
     :label: Helmholtz
 
-    A = -k_\text{B}T \text{ln}Q_N
+    A = -k_\text{B}T\ln{Q_N}
 
 where :math:`k_\text{B}` is Boltzmann's constant. The standard names for :math:`\Omega` and :math:`Q_N` are 
 the microcanonical / canonical partition function respectively. 
@@ -471,8 +471,8 @@ characteristic length in the system.
 
 Temperature in MD and how to control it
 =======================================
-Temperature was introduced in the previous section as a parameter in the exponent of the canonical 
-ensemble distribution function, see Equation :eq:`NVTPhaseFunction`. Via the fundamental 
+Temperature was introduced in the previous section as a parameter in the exponent of the ``canonical 
+ensemble`` distribution function, see Equation :eq:`distributionNVT`. Via the fundamental 
 Equation :eq:`Helmholtz` this statistical temperature could be identified with the empirical 
 temperature of classical thermodynamics. 
 It is not immediately obvious, however, how to use these concepts to define and measure 
@@ -490,8 +490,8 @@ compute.
 
     \left< \sum^N_{i=1} \frac{{\bf{p}}_i^2}{2m_i} \right>_{NVT} = \frac{3}{2}Nk_\text{B}T
 
-The microcanonical average :math:`\left< \dots\right>_{NVE}` of Equation :math:`NVEPhaseFunction`
-and canonical average of Equation :math:`NVTPhaseFunction` of a quantitative are not identical. 
+The microcanonical average :math:`\left< \dots\right>_{NVE}` of Equation :eq:`NVEPhaseFunction`
+and canonical average of Equation :eq:`NVTPhaseFunction` of a quantitative are not identical. 
 In statistical mechanics it is shown that for properties such as kinetic energy, the difference 
 is one order less in system size :math:`N`. 
 This implies that the fractional difference vanishes in the thermodynamic limit of very large :math:`N`.
