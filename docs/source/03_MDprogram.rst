@@ -214,7 +214,7 @@ displacement from the equilibrium position. The force constant :math:`k` can be 
 We can implement this in the following way:
 
 .. code-block:: fortran
-    :lineons:
+    :linenos:
 
     real*8, dimension(3, natom) :: fatom
     do i = 1, natom
@@ -528,7 +528,7 @@ Velocity Verlet algorithm.
 
     integer, parameter :: Treq = 8
     real*8 :: T 
-        
+
     ...
     
     T = 2.0d0 * Ekin / (3.0d0 * k * real(natom))    
