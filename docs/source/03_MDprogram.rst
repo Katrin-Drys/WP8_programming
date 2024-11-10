@@ -216,20 +216,20 @@ We can implement this in the following way:
 .. code-block:: fortran
     :lineons:
 
-        real*8, dimension(3, natom) :: fatom
-        do i = 1, natom
-            fatom(:, i) = -k * coord(:, i)
-        end do
+    real*8, dimension(3, natom) :: fatom
+    do i = 1, natom
+        fatom(:, i) = -k * coord(:, i)
+    end do
 
 The ``potential energy`` of the system is given by :math:`V = \frac{1}{2}kx^2`.
 
 .. code-block:: fortran
-    :lineons:
+    :linenos:
 
-        real*8 :: pot_harm = 0.0
-        do i = 1, natom
-            pot_harm = pot_harm + 0.5d0 * k * sum(coord(:, i)**2)
-        end do
+    real*8 :: pot_harm = 0.0
+    do i = 1, natom
+        pot_harm = pot_harm + 0.5d0 * k * sum(coord(:, i)**2)
+    end do
 
 Write these two Codes as subroutines as well. The next step is to implement the ``Velocity Verlet`` algorithm
 in order to propagate the particles in time.
@@ -237,37 +237,37 @@ We will write the Velocity Verlet algorithm into the main program, and within th
 we will call the force and potential energy subroutines from above.
 
 .. code-block:: fortran
-    :lineons:
+    :linenos:
 
-        integer, parameter :: itime = 1000, natom = 108
-        real*8, parameter :: m = 39.948d0, dt = 0.05d0, l = 17.158d0
+    integer, parameter :: itime = 1000, natom = 108
+    real*8, parameter :: m = 39.948d0, dt = 0.05d0, l = 17.158d0
     
-        real*8, dimension(3, natom) :: coord, vatom, fatom
-        real*8 :: Epot, Ekin, Etot
+    real*8, dimension(3, natom) :: coord, vatom, fatom
+    real*8 :: Epot, Ekin, Etot
+
+    call calc_force(natom, coord, fatom)
+    call calc_pot(natom, coord, Epot)
+
+    vatom = 0.0d0
+
+    ! Main loop
+    do run = 1, itime
+        do i = 1, natom
+            vatom(:,i) = vatom(:,i) + 0.5d0 * dt * fatom(:,i) / m
+            coord(:,i) = coord(:,i) + dt * vatom(:,i)
+        end do
 
         call calc_force(natom, coord, fatom)
-        call calc_pot(natom, coord, Epot)
 
-        vatom = 0.0d0
-
-        ! Main loop
-        do run = 1, itime
-            do i = 1, natom
-                vatom(:,i) = vatom(:,i) + 0.5d0 * dt * fatom(:,i) / m
-                coord(:,i) = coord(:,i) + dt * vatom(:,i)
-            end do
-
-            call calc_force(natom, coord, fatom)
-
-            Ekin = 0.0d0
-            do i = 1, natom
-                vatom(:,i) = vatom(:,i) + 0.5d0 * dt * fatom(:,i) / m
-                Ekin = Ekin + 0.5d0 * m * sum(vatom(:,i)**2)
-            end do
-
-            call calc_pot(natom, coord, Epot)
-            Etot = Ekin + Epot
+        Ekin = 0.0d0
+        do i = 1, natom
+            vatom(:,i) = vatom(:,i) + 0.5d0 * dt * fatom(:,i) / m
+            Ekin = Ekin + 0.5d0 * m * sum(vatom(:,i)**2)
         end do
+
+        call calc_pot(natom, coord, Epot)
+        Etot = Ekin + Epot
+    end do
 
 Use the following parameters as given: 
 
@@ -526,12 +526,12 @@ Velocity Verlet algorithm.
 .. code-block:: fortran
     :linenos:
 
-        integer, parameter :: Treq = 8
-        real*8 :: T 
-
-        ...
+    integer, parameter :: Treq = 8
+    real*8 :: T 
         
-        T = 2.0d0 * Ekin / (3.0d0 * k * real(natom))    
-        do i = 1, natom
-            vatom(:,i) = vatom(:,i) * sqrt(Treq / T)    ! sqrt (square root) is an intrinsic function
-        end do
+    ...
+    
+    T = 2.0d0 * Ekin / (3.0d0 * k * real(natom))    
+    do i = 1, natom
+        vatom(:,i) = vatom(:,i) * sqrt(Treq / T)    ! sqrt (square root) is an intrinsic function
+    end do
