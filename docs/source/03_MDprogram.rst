@@ -343,12 +343,12 @@ discrete points of the MD trajectory gives us a very good approximation to
 
     \bar{A}_{\Delta t} \cong \frac{1}{M} \sum^M_{m=1} A\left( t_m \right)
 
-.. Important!::
+.. admonition:: Important!
 
     Time averages also provide the connection to statistical mechanics through the ``ergodic principle``.
     This principle states that time averages of ergodic systems, in the limit of trajectories of 
     infinite length :math:`\Delta t`, can be replaced by ensemble averages.
-    
+
 Since the MD algorithms discussed so far (ideally) produce a trajectory at constant energy, 
 the appropriate ensemble for MD is the ``microcanonical ensemble``.
 
