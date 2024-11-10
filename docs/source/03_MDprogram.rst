@@ -215,23 +215,21 @@ We can implement this in the following way:
 
 .. code-block:: fortran
     :lineons:
-    ...
+
         real*8, dimension(3, natom) :: fatom
         do i = 1, natom
             fatom(:, i) = -k * coord(:, i)
         end do
-    ...
 
 The ``potential energy`` of the system is given by :math:`V = \frac{1}{2}kx^2`.
 
 .. code-block:: fortran
     :lineons:
-    ...
+
         real*8 :: pot_harm = 0.0
         do i = 1, natom
             pot_harm = pot_harm + 0.5d0 * k * sum(coord(:, i)**2)
         end do
-    ...
 
 Write these two Codes as subroutines as well. The next step is to implement the ``Velocity Verlet`` algorithm
 in order to propagate the particles in time.
@@ -240,7 +238,7 @@ we will call the force and potential energy subroutines from above.
 
 .. code-block:: fortran
     :lineons:
-    ...
+
         integer, parameter :: itime = 1000, natom = 108
         real*8, parameter :: m = 39.948d0, dt = 0.05d0, l = 17.158d0
     
@@ -270,7 +268,6 @@ we will call the force and potential energy subroutines from above.
             call calc_pot(natom, coord, Epot)
             Etot = Ekin + Epot
         end do
-    ...
 
 Use the following parameters as given: 
 
@@ -529,7 +526,6 @@ Velocity Verlet algorithm.
 .. code-block:: fortran
     :linenos:
 
-    ...
         integer, parameter :: Treq = 8
         real*8 :: T 
 
@@ -539,6 +535,3 @@ Velocity Verlet algorithm.
         do i = 1, natom
             vatom(:,i) = vatom(:,i) * sqrt(Treq / T)    ! sqrt (square root) is an intrinsic function
         end do
-
-        ...
-    ...
