@@ -528,3 +528,20 @@ determined from the ratio of the instantaneous kinetic temperature and the desir
 We will illustrate this with the outline of a procedure appropriate for use with the 
 Velocity Verlet algorithm.
 
+
+.. code-block:: fortran
+    :lineons:
+
+    ...
+        integer, parameter :: Treq = 8
+        real*8 :: T 
+
+        ...
+        
+        T = 2.0d0 * Ekin / (3.0d0 * k * real(natom))    
+        do i = 1, natom
+            vatom(:,i) = vatom(:,i) * sqrt(Treq / T)    ! sqrt (square root) is an intrinsic function
+        end do
+
+        ...
+    ...

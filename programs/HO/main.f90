@@ -51,7 +51,11 @@ program main
 
         ! Scale the temperature
         if (run == 1) then
-            T 
+            T = 2.0d0 * Ekin / (3.0d0 * real(natom))
+            do i = 1, natom
+                vatom(:, i) = vatom(:, i) * sqrt(Treq / T)
+            end do
+        end if
         
         call calc_pot(natom, coord, Epot)
         Etot = Ekin + Epot
