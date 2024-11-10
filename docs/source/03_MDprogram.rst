@@ -343,9 +343,12 @@ discrete points of the MD trajectory gives us a very good approximation to
 
     \bar{A}_{\Delta t} \cong \frac{1}{M} \sum^M_{m=1} A\left( t_m \right)
 
-Time averages also provide the connection to statistical mechanics through the ``ergodic principle``.
-This principle states that time averages of ergodic systems, in the limit of trajectories of 
-infinite length :math:`\Delta t`, can be replaced by ensemble averages.
+.. Important!::
+
+    Time averages also provide the connection to statistical mechanics through the ``ergodic principle``.
+    This principle states that time averages of ergodic systems, in the limit of trajectories of 
+    infinite length :math:`\Delta t`, can be replaced by ensemble averages.
+    
 Since the MD algorithms discussed so far (ideally) produce a trajectory at constant energy, 
 the appropriate ensemble for MD is the ``microcanonical ensemble``.
 
@@ -354,7 +357,7 @@ the appropriate ensemble for MD is the ``microcanonical ensemble``.
 
     \text{lim}_{\Delta t \to \infty}\bar{A}_{\Delta t} = \int d{\bf{r}}^Nd{\bf{p}}^N \rho_{NVE} \left( {\bf{r}}^N,{\bf{p}}^N\right) \mathcal{A}\left( {\bf{r}}^N,{\bf{p}}^N\right) \equiv \left< A\right>_{NVE}
 
-where :math:`\rho_{NVE}` is given by a Dirac delta function in the total energy, restricting the 
+Here :math:`\rho_{NVE}` is given by a Dirac delta function in the total energy, restricting the 
 manifold of accessible phase points :math:`{\bf{r}}^N,{\bf{p}}^N` to a hypersurface of constant energy 
 :math:`E` only.
 
@@ -422,7 +425,7 @@ and :math:`Q_N` to the ``Helmholtz free energy`` :math:`A`.
 
     A = -k_\text{B}T\ln{Q_N}
 
-where :math:`k_\text{B}` is Boltzmann's constant. The standard names for :math:`\Omega` and :math:`Q_N` are 
+Here :math:`k_\text{B}` is Boltzmann's constant. The standard names for :math:`\Omega` and :math:`Q_N` are 
 the microcanonical / canonical partition function respectively. 
 Equations :eq:`Boltzmann` and :eq:`Helmholtz` 
 are the central relations linking statistical mechanics to thermodynamics. 
