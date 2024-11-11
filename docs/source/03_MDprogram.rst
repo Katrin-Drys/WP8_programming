@@ -543,9 +543,10 @@ Write this part of Code into a fitting place in your program.
 
 Interacting potential 
 =====================
-Having introduced the basic procedures of an MD code, we now want to replace the the force routine 
-for the harmonic potential by an interacting potential. The model we will use is the pair-wise 
-additive potential which has the prototype for MD, namely the ``12-6 Lennard-Jones potential``. 
+Having introduced the basic procedures of an MD code, we now want to replace the the routines
+for calculating the forces and potential energy for the ``harmonic potential`` by an interacting potential. 
+The model we will use is the pair-wise additive potential which has the prototype for MD, namely 
+the ``12-6 Lennard-Jones potential``. 
 
 .. figure:: figures/lj.svg
     :width: 400
@@ -565,10 +566,9 @@ interpretation: :math:`V(r) = 0` at :math:`r = \sigma`, repulsive for :math:`r <
 :math:`r > \sigma` with a minimum of :math:`V(r_0) = -\varepsilon` at 
 :math:`r_0 = 2^{1/6} \sigma \approx 1.12 \sigma`. For large distances the potential :math:`V(r)` approaches zero. 
 
-.. admonition:: Parameters for Argon
+.. admonition:: LJ parameters for Argon
 
-    Good 12-6 parameters for liquid argon are :math:`\varepsilon/k_\text{B} = 120~\mathrm{K}` 
-    and :math:`\sigma = 3.4` Å.
+    :math:`\varepsilon/k_\text{B} = 120~\mathrm{K}` and :math:`\sigma = 3.405~`Å.
 
 At :math:`r = 3\sigma, V(r) \approx -0.005 \sigma`, i.e. less than a percent of the value at the minimum. 
 Therefore, beyond this radius, or even already at shorter distances, the contribution to energy and 
@@ -583,3 +583,10 @@ Thus we introduce a cutoff radius :math:`r_c` beyond which the potential is just
      V_c(r) = V(r) &  r \leq r_c \\
      V_c(r) = 0 &  r > r_c
     \end{cases}
+
+Let's take a look at the modified subroutines for the force and potential energy calculation.
+
+.. code-block:: fortran
+    :linenos:
+
+    
