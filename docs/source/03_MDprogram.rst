@@ -699,7 +699,7 @@ these basis vectors, where :math:`l,m,n` are integers (positive and negative). T
 energy of the particles in the central cell, corresponding to (:math:`l,m,n`) = (:math:`0,0,0`), is 
 now a sum of the interacions over all cells.
 
-.. math::
+.. math:: 
     :label: EpotPBC
 
      \mathcal{V}(\mathrm{\textbf{r}}^N) = \frac{1}{2} \sum\limits_{i}^{N} \upsilon_i(\mathrm{\textbf{r}}^N)
@@ -716,7 +716,7 @@ For short range interactions such as the 12-6 interaction of Equation :eq:`lj` i
 of the system sufficiently large that the contributions of all images, except the nearest, can be 
 disregarded, because they are too far away. The nearest image can be in the same (i.e. central) cell 
 but also in one of the neighboring cells, see the figure above.
-This approximation is known the name minimum image approximation. We will illustrate the code of the 
+This approximation is known the name ``minimum image approximation``. We will illustrate the code of the 
 minimum image approximation for a cubic box, i.e. :math:`\textbf{a}, \textbf{b}, \textbf{c}`
 have all the same length $L$ and are directed along the :math:`x`-, :math:`y`- and :math:`z`-axis of the 
 Cartesian frame, respectively.
