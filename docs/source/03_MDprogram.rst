@@ -558,14 +558,28 @@ The pair potential :math:`V(r)` defining this model is usually written in the fo
 .. math::
     :label: lj
 
-    V(r) = 4 \varepsilon \left(\left(\frac{\sigma}{r}\right)^{12} - \left(\frac{\sigma}{r}\right)^{6} \right)
+    V(r) = 4 \varepsilon \left[\left(\frac{\sigma}{r}\right)^{12} - \left(\frac{\sigma}{r}\right)^{6} \right]
 
 in which the interaction strength :math:`\varepsilon` and interaction range :math:`\sigma` have a convenient 
 interpretation: :math:`V(r) = 0` at :math:`r = \sigma`, repulsive for :math:`r < \sigma` and attractive for 
-:math:`r > \sigma` with a minimum of :math:`V(r_0) = -\varepsilon` at :math:`r_0 = 2^{1/6} \sigma \approx 1.12 \sigma`. 
-For large distances the potential :math:`V(r)` approaches zero. 
-Good 12-6 parameters for liquid argon are :math:`\varepsilon/k_\text{B} = 120~\mathrm{K}` and :math:`\sigma = 3.4` Å. 
+:math:`r > \sigma` with a minimum of :math:`V(r_0) = -\varepsilon` at 
+:math:`r_0 = 2^{1/6} \sigma \approx 1.12 \sigma`. For large distances the potential :math:`V(r)` approaches zero. 
+
+.. admonition:: Parameters for Argon
+
+    Good 12-6 parameters for liquid argon are :math:`\varepsilon/k_\text{B} = 120~\mathrm{K}` 
+    and :math:`\sigma = 3.4` Å.
+
 At :math:`r = 3\sigma, V(r) \approx -0.005 \sigma`, i.e. less than a percent of the value at the minimum. 
 Therefore, beyond this radius, or even already at shorter distances, the contribution to energy and 
-forces can be neglected, which saves computer time. The actual potential that will be used in the force 
-calculation is a truncated function:
+forces can be neglected, which saves computer time. 
+Thus we introduce a cutoff radius :math:`r_c` beyond which the potential is just set to zero.
+
+.. math::
+    :label: ljCutoff
+
+     u(x) = 
+    \begin{cases} 
+     V_c(r) = V(r) &  r \leq r_c \\
+     V_c(r) = 0 &  r > r_c
+    \end{cases}
