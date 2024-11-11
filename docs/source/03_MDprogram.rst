@@ -564,7 +564,7 @@ in which the interaction strength :math:`\varepsilon` and interaction range :mat
 interpretation: :math:`V(r) = 0` at :math:`r = \sigma`, repulsive for :math:`r < \sigma` and attractive for 
 :math:`r > \sigma` with a minimum of :math:`V(r_0) = -\varepsilon` at :math:`r_0 = 2^{1/6} \sigma \approx 1.12 \sigma`. 
 For large distances the potential :math:`v(r)` approaches zero. Good 12-6 parameters for liquid argon 
-are :math:`\epsilon/k_\text{B} = 120~\mathrm{K}` and :math:`\sigma = 3.4 \AA`.
+are :math:`\varepsilon/k_\text{B} = 120~\mathrm{K}` and :math:`\sigma = 3.4 \angstrom`.
 At :math:`r = 3\sigma, V(r) \approx -0.005 \sigma`, i.e. less than a percent of the value at the minimum. 
 Therefore, beyond this radius, or even already at shorter distances, the contribution to energy and 
 forces can be neglected, which saves computer time. The actual potential that will be used in the force 
