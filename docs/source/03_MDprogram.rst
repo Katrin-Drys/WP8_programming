@@ -537,3 +537,35 @@ Velocity Verlet algorithm.
     do i = 1, natom
         vatom(:,i) = vatom(:,i) * sqrt(Treq / T)    ! sqrt (square root) is an intrinsic function
     end do
+
+The variable ``Treq``is the required temperature. 
+Write this part of Code into a fitting place in your program.
+
+Interacting potential 
+=====================
+Having introduced the basic procedures of an MD code, we now want to replace the the force routine 
+for the harmonic potential by an interacting potential. The model we will use is the pair-wise 
+additive potential which has the prototype for MD, namely the ``12-6 Lennard-Jones potential``. 
+
+.. figure:: figures/lj.svg
+    :width: 400
+    :align: center
+
+    Lennard Jones potential. 
+
+The pair potential :math:`V(r)` defining this model is usually written in the form
+
+.. math::
+    :label: lj
+
+    V(r) = 4 \varepsilon \left(\left(\frac{\sigma}{r}\right)^{12} - \left(\frac{\sigma}{r}\right)^{6} \right)
+
+in which the interaction strength :math:`\varepsilon` and interaction range :math:`\sigma` have a convenient 
+interpretation: :math:`V(r) = 0` at :math:`r = \sigma`, repulsive for :math:`r < \sigma` and attractive for 
+:math:`r > \sigma` with a minimum of :math:`V(r_0) = -\varepsilon` at :math:`r_0 = 2^{1/6} \sigma \approx 1.12 \sigma`. 
+For large distances the potential :math:`v(r)` approaches zero. Good 12-6 parameters for liquid argon 
+are :math:`\epsilon/k_\text{B} = 120~\mathrm{K}` and :math:`\sigma = 3.4 \AA`.
+At :math:`r = 3\sigma, V(r) \approx -0.005 \sigma`, i.e. less than a percent of the value at the minimum. 
+Therefore, beyond this radius, or even already at shorter distances, the contribution to energy and 
+forces can be neglected, which saves computer time. The actual potential that will be used in the force 
+calculation is a truncated function:
