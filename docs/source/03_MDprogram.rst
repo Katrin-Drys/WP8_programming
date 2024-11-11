@@ -280,9 +280,9 @@ Use the following parameters as given:
 +-----------------------------+-------------------------+
 | Length of simulation box (Å)| 17.158                  |
 +-----------------------------+-------------------------+
-| Number of iterations        | 1000                    |
+| Number of iterations        | 400                     |
 +-----------------------------+-------------------------+
-| Length of time step         | 0.05                    |
+| Length of time step (ps)    | 0.05                    |
 +-----------------------------+-------------------------+
 | Force constant              | 5                       |
 +-----------------------------+-------------------------+
@@ -540,6 +540,7 @@ Velocity Verlet algorithm.
 
 The variable ``Treq``is the required temperature. 
 Write this part of Code into a fitting place in your program.
+Rescale the velocities once every 10 steps.
 
 Interacting potential 
 =====================

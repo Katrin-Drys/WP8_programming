@@ -2,7 +2,7 @@ program main
     use helpers
     implicit none
 
-    integer, parameter :: itime = 1000     
+    integer, parameter :: itime = 400     
     real*8, parameter :: m = 39.948d0      
     real*8, parameter :: dt = 0.05d0 
     integer, parameter :: natom = 108       
