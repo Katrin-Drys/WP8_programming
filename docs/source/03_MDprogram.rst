@@ -568,7 +568,7 @@ interpretation: :math:`V(r) = 0` at :math:`r = \sigma`, repulsive for :math:`r <
 
 .. admonition:: LJ parameters for Argon
 
-    :math:`\varepsilon/k_\text{B} = 120~\mathrm{K}` and :math:`\sigma = 3.405~Å`.
+    :math:`\varepsilon/k_\text{B} = 120~\mathrm{K}` and :math:`\sigma = 3.405~\mathrm{Å}`.
 
 At :math:`r = 3\sigma, V(r) \approx -0.005 \sigma`, i.e. less than a percent of the value at the minimum. 
 Therefore, beyond this radius, or even already at shorter distances, the contribution to energy and 
@@ -584,9 +584,76 @@ Thus we introduce a cutoff radius :math:`r_c` beyond which the potential is just
      V_c(r) = 0 &  r > r_c
     \end{cases}
 
+The cutoff radius is set to half the box length in our case.
+Since we loose a bit of the attractive part of the potential, we have to add a cutoff energy
+to the potential energy, to keep the total energy of our system constant.
 Let's take a look at the modified subroutines for the force and potential energy calculation.
 
 .. code-block:: fortran
     :linenos:
 
-    
+    subroutine calc_pot(natom, l, coord, Epot)
+        implicit none
+
+        ...
+
+        real*8, parameter :: sigma = 3.405d0, epsilon = 120.0d0
+        real*8, parameter :: e_cutoff = 3.83738839608178386d-3
+        real*8 :: sigma_sq, r_cutoff, r_cutoff_sq, r_ij_sq, sr_2, sr_6, sr_12
+
+        integer :: i, j
+
+        sigma_sq = sigma * sigma
+        r_cutoff = 0.5d0 * l
+        r_cutoff_sq = r_cutoff * r_cutoff
+
+        Epot = 0.0d0
+        do i = 1, natom-1
+            do j = i+1, natom
+                r_ij_sq = sum((coord(:,i)-coord(:,j))**2)
+                sr_2 = sigma_sq / r_ij_sq
+                sr_6 = sr_2 * sr_2 * sr_2
+                sr_12 = sr_6 * sr_6
+                if (r_ij_sq < r_cutoff_sq) then
+                    Epot = Epot + sr_12 - sr_6 + e_cutoff
+                end if
+            end do
+        Epot = 4.0d0 * epsilon * Epot
+        end do
+    end subroutine calc_pot
+
+Remember, that the force is the negative first derivative of the potential energy with respect to the
+coordinate. 
+
+.. code-block:: fortran
+    :linenos:
+
+    subroutine calc_force(natom, l, coord, fatom)
+        implicit none
+
+        ...
+
+        real*8, parameter :: sigma = 3.405d0, epsilon = 120.0d0
+        real*8 :: sigma_sq, r_cutoff, r_cutoff_sq, r_ij_sq, sr_2, sr_6, sr_12
+
+        integer :: i, j
+
+        sigma_sq = sigma * sigma
+        r_cutoff = 0.5d0 * l
+        r_cutoff_sq = r_cutoff * r_cutoff
+
+        fatom = 0.0d0
+        do i = 1, natom-1
+            do j = i+1, natom
+                r_ij_sq = sum((coord(:,i)-coord(:,j))**2)
+                sr_2 = sigma_sq / r_ij_sq
+                sr_6 = sr_2 * sr_2 * sr_2
+                sr_12 = sr_6 * sr_6
+                if (r_ij_sq < r_cutoff_sq) then
+                    fij = 48.0d0 * epsilon * (sr_12 - 0.5d0 * sr_6) / r_ij_sq
+                    fatom(:,i) = fatom(:,i) + fij * ((coord(:,i))-coord(:,j))
+                    fatom(:,j) = fatom(:,j) - fij * ((coord(:,i))-coord(:,j))
+                end if
+            end do
+        end do
+    end subroutine calc_force
