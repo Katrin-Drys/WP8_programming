@@ -33,3 +33,9 @@ To do so, type the following command in your terminal:
 and answer the questions that are asked.
 Compare the pair distribution functions. What kind of structural changes can be observed and what 
 kind of physical states are we simulating? Explain which system represents which physical state.
+
+Aknowledgements
+----------------
+
+We would like to acknowledge the Numerical Simulations in Chemistry course by Michiel Sprik and the 
+QCII script by the Grimme group, which inspired us for our script. 
