@@ -28,7 +28,7 @@ Have fun!
    :maxdepth: 3
    :caption: Application
 
-   04_Application
+   04_application
 
 .. note::
 
