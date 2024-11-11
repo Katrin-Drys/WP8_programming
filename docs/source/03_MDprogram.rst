@@ -562,9 +562,11 @@ The pair potential :math:`V(r)` defining this model is usually written in the fo
     V(r) = 4 \varepsilon \left[\left(\frac{\sigma}{r}\right)^{12} - \left(\frac{\sigma}{r}\right)^{6} \right]
 
 in which the interaction strength :math:`\varepsilon` and interaction range :math:`\sigma` have a convenient 
-interpretation: :math:`V(r) = 0` at :math:`r = \sigma`, repulsive for :math:`r < \sigma` and attractive for 
-:math:`r > \sigma` with a minimum of :math:`V(r_0) = -\varepsilon` at 
-:math:`r_0 = 2^{1/6} \sigma \approx 1.12 \sigma`. For large distances the potential :math:`V(r)` approaches zero. 
+interpretation: :math:`\varepsilon` represents the depth of the potential well, and :math:`\sigma` the
+distance at which the potential is zero. The potential is zero at :math:`r = \sigma`, 
+repulsive for :math:`r < \sigma` and attractive for :math:`r > \sigma` with a minimum 
+of :math:`V(r_0) = -\varepsilon` at :math:`r_0 = 2^{1/6} \sigma \approx 1.12 \sigma`. 
+For large distances the potential :math:`V(r)` approaches zero. 
 
 .. admonition:: LJ parameters for Argon
 
@@ -657,3 +659,65 @@ coordinate.
             end do
         end do
     end subroutine calc_force
+
+To create a more flexible and reusable force computation routine, the parameters that define 
+the force field, such as :math:`\varepsilon` and :math:`\sigma`, 
+are treated as separate input arguments. 
+Additionally, the length :math:`l` of the edge of the cubic MD cell is included as an 
+argument to facilitate the application of ``periodic boundary conditions`` (PBC),
+which we will do in the next section.
+Finally, the cutoff radius, used in Equation :eq:`ljCutoff`, is also passed as an argument to the subroutine.
+
+The force calculation is the part of the MD program taking most of the CPU time. 
+Optimization of the code for the force loop is, therefore, most critical. 
+One features of the code that implements the force calculation, which may seem somewhat odd at first, is the fact, 
+that the computation of the square root :math:`r = \sqrt{r^2}` is avoided. 
+The square root is a relatively expensive operation. 
+This was particularly noticable for the generation of computers in the 60's and early 70's 
+on which these MD codes were developed.
+
+Periodic boundary conditions (PBC)
+==================================
+Our force computation is for a finite number :math:`n = natom` of particles, which can 
+be located anywhere in space. These boundary conditions correspond to a cluster of atoms in vacuum. 
+In order to describe liquids with uniform (average) density we can either take a very big cluster 
+and hope that in the interior of the cluster surface effects can be neglected, or use periodic 
+boundary conditions. Periodic boundary conditions replicate a MD cell with the shape of a 
+parallelpiped, and its contents, all over space mimicking the homogeneous state of a liquid or solid. 
+
+.. figure:: figures/pbc.svg
+    :label: pbc
+    :width: 400
+    :align: center
+
+    Periodic boundary conditions in 2D. 
+
+Of course, the periodic nature will introduce certain errors, called finite size effects, 
+which can be small or rather serious depending on the nature of the system. 
+If the MD box is spanned by three vectors :math:`\textbf{a}`, :math:`\textbf{b}`, :math:`\textbf{c}` 
+the images are displaced by multiples :math:`l\textbf{a} + m\textbf{b} + n\textbf{c}` of 
+these basis vectors, where :math:`l,m,n` are integers (positive and negative). The potential 
+energy of the particles in the central cell, corresponding to (:math:`l,m,n`) = (:math:`0,0,0`), is 
+now a sum of the interacions over all cells.
+
+.. math::
+    :label: EpotPBC
+
+     \mathcal{V}(\mathrm{\textbf{r}}^N) = \frac{1}{2} \sum\limits_{i}^{N} \upsilon_i(\mathrm{\textbf{r}}^N)
+
+.. math::
+    :label: potentialPBC
+
+     \upsilon_i(\mathrm{\textbf{r}}^N) = \sum\limits_{j\neq i}^{N}\ \sum\limits_{l,m,n=-\infty}^{+\infty}\upsilon(\left|\mathrm{\textbf{r}}_j+l\textbf{a}+m\textbf{b}+n\textbf{c}-\mathrm{\textbf{r}}_i\right|)
+
+Note that linear momentum is still a constant of motion in such a set of infinitely replicated systems. 
+The conservation of angular momentum, however, is lost as a result of the reduction of rotational 
+symmetry from sperical to cubic.
+For short range interactions such as the 12-6 interaction of Equation :eq:`lj` it is possible to make the size 
+of the system sufficiently large that the contributions of all images, except the nearest, can be 
+disregarded, because they are too far away. The nearest image can be in the same (i.e. central) cell 
+but also in one of the neighboring cells, see Figure :numref:`pbc`.
+This approximation is known the name minimum image approximation. We will illustrate the code of the 
+minimum image approximation for a cubic box, i.e. :math:`\textbf{a}, \textbf{b}, \textbf{c}`
+have all the same length $L$ and are directed along the :math:`x`-, :math:`y`- and :math:`z`-axis of the 
+Cartesian frame, respectively.
