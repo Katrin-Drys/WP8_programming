@@ -95,6 +95,8 @@ module helpers
 
             real*8, parameter :: sigma = 3.405d0, epsilon = 120.0d0
             real*8 :: sigma_sq, r_cutoff, r_cutoff_sq, r_ij_sq, sr_2, sr_6, sr_12, fij
+            ! PBC
+            real*8, dimension(3) :: r_ij
 
             integer :: i, j
 
@@ -108,7 +110,11 @@ module helpers
 
             do i = 1, natom-1
                 do j = i+1, natom
-                    r_ij_sq = sum(((coord(:,i))-coord(:,j))**2)
+                    ! PBC
+                    r_ij(:) = coord(:,i)-coord(:,j)
+                    r_ij(:) = r_ij(:) - l * anint(r_ij(:) / l)
+                    r_ij_sq = sum(r_ij**2)
+                    !r_ij_sq = sum(((coord(:,i))-coord(:,j))**2)
                     sr_2 = sigma_sq / r_ij_sq
                     sr_6 = sr_2 * sr_2 * sr_2
                     sr_12 = sr_6 * sr_6
@@ -118,8 +124,8 @@ module helpers
                         fij = 48.0d0 * epsilon * (sr_12 - 0.5d0 * sr_6) / r_ij_sq
                         ! Hier wird die Richtung der Kraft berücksichtigt
                         ! um die Kfäfte die auf die einzelnen Atome wirken zu berechnen
-                        fatom(:,i) = fatom(:,i) + fij * ((coord(:,i))-coord(:,j))
-                        fatom(:,j) = fatom(:,j) - fij * ((coord(:,i))-coord(:,j))
+                        fatom(:,i) = fatom(:,i) + fij * r_ij(:) !((coord(:,i))-coord(:,j))
+                        fatom(:,j) = fatom(:,j) - fij * r_ij(:) !((coord(:,i))-coord(:,j))
                     end if
                 end do
             end do
@@ -141,6 +147,8 @@ module helpers
             real*8, parameter :: sigma = 3.405d0, epsilon = 120.0d0
             real*8, parameter :: e_cutoff = 3.83738839608178386d-3
             real*8 :: sigma_sq, r_cutoff, r_cutoff_sq, r_ij_sq, sr_2, sr_6, sr_12
+            ! PBC
+            real*8, dimension(3) :: r_ij
 
             integer :: i, j
 
@@ -151,7 +159,11 @@ module helpers
             Epot = 0.0d0
             do i = 1, natom-1
                 do j = i+1, natom
-                    r_ij_sq = sum(((coord(:,i))-coord(:,j))**2)
+                    ! PBC
+                    r_ij(:) = coord(:,i)-coord(:,j)
+                    r_ij(:) = r_ij(:) - l * anint(r_ij(:) / l)
+                    r_ij_sq = sum(r_ij**2)
+                    !r_ij_sq = sum(((coord(:,i))-coord(:,j))**2)
                     sr_2 = sigma_sq / r_ij_sq
                     sr_6 = sr_2 * sr_2 * sr_2
                     sr_12 = sr_6 * sr_6

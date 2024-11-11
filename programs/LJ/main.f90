@@ -2,12 +2,12 @@ program main
     use helpers
     implicit none
 
-    integer, parameter :: itime = 1000     
+    integer, parameter :: itime = 2000     
     real*8, parameter :: m = 39.948d0      
-    real*8, parameter :: dt = 0.02d0 
+    real*8, parameter :: dt = 0.008d0 
     integer, parameter :: natom = 108       
     real*8, parameter :: l = 17.158d0  
-    integer, parameter :: Treq = 140  
+    integer, parameter :: Treq = 500  
 
     real*8 :: T 
     real*8, dimension(3,natom) :: coord     
@@ -23,6 +23,11 @@ program main
     vatom = 0.0d0
     Ekin = 0.0
 
+    ! PBC
+    do i = 1, natom
+        coord(:,i) = coord(:,i) - l * anint(coord(:,i) / l)
+    end do
+
     call calc_force(natom, l, coord, fatom)
     call calc_pot(natom, l, coord, Epot)
     
@@ -36,6 +41,11 @@ program main
             ! Equation (6)
             vatom(:,i) = vatom(:,i) + 0.5d0*fatom(:,i)*dt/m
             coord(:,i) = coord(:,i) + dt * vatom(:,i)
+        end do
+
+        ! PBC
+        do i = 1, natom
+            coord(:,i) = coord(:,i) - l * anint(coord(:,i) / l)
         end do
 
         ! Equation (7)

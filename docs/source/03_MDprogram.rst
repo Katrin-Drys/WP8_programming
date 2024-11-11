@@ -653,8 +653,8 @@ coordinate.
                 sr_12 = sr_6 * sr_6
                 if (r_ij_sq < r_cutoff_sq) then
                     fij = 48.0d0 * epsilon * (sr_12 - 0.5d0 * sr_6) / r_ij_sq
-                    fatom(:,i) = fatom(:,i) + fij * ((coord(:,i))-coord(:,j))
-                    fatom(:,j) = fatom(:,j) - fij * ((coord(:,i))-coord(:,j))
+                    fatom(:,i) = fatom(:,i) + fij * (coord(:,i)-coord(:,j))
+                    fatom(:,j) = fatom(:,j) - fij * (coord(:,i)-coord(:,j))
                 end if
             end do
         end do
@@ -718,5 +718,22 @@ disregarded, because they are too far away. The nearest image can be in the same
 but also in one of the neighboring cells, see the figure above.
 This approximation is known the name ``minimum image approximation``. We will illustrate the code of the 
 minimum image approximation for a cubic box, i.e. :math:`\textbf{a}, \textbf{b}, \textbf{c}`
-have all the same length $L$ and are directed along the :math:`x`-, :math:`y`- and :math:`z`-axis of the 
+have all the same length :math:`L` and are directed along the :math:`x`-, :math:`y`- and :math:`z`-axis of the 
 Cartesian frame, respectively.
+
+.. code-block::
+    :label: minimumImage
+
+    do i = 1, natom
+        ! anint() rounds to the nearest integer
+        coord(:,i) = coord(:,i) - l * anint(coord(:,i) / l)
+    end do
+
+    ...
+
+    do i = 1, natom-1
+        do j = i+1, natom
+            r_ij(:) = coord(:,i) - coord(:,j)
+            r_ij(:) = r_ij(:) - l * anint(r_ij(:) / l)
+        end do
+    end do
