@@ -618,8 +618,8 @@ Let's take a look at the modified subroutines for the force and potential energy
                     Epot = Epot + sr_12 - sr_6 + e_cutoff
                 end if
             end do
-        Epot = 4.0d0 * epsilon * Epot
         end do
+        Epot = 4.0d0 * epsilon * Epot
     end subroutine calc_pot
 
 Remember, that the force is the negative first derivative of the potential energy with respect to the

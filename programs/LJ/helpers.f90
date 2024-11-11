@@ -159,8 +159,8 @@ module helpers
                         Epot = Epot + sr_12 - sr_6 + e_cutoff
                     end if
                 end do
-            Epot = 4.0d0 * epsilon * Epot
             end do
+            Epot = 4.0d0 * epsilon * Epot
         end subroutine calc_pot
 
 end module helpers
