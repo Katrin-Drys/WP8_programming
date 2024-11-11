@@ -24,6 +24,12 @@ Have fun!
 
    03_MDprogram
 
+.. toctree::
+   :maxdepth: 3
+   :caption: Application
+
+   04_Application
+
 .. note::
 
    This project is under active development.
