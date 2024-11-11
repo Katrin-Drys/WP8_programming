@@ -686,7 +686,6 @@ boundary conditions. Periodic boundary conditions replicate a MD cell with the s
 parallelpiped, and its contents, all over space mimicking the homogeneous state of a liquid or solid. 
 
 .. figure:: figures/pbc.svg
-    :label: pbc
     :width: 400
     :align: center
 
@@ -716,7 +715,7 @@ symmetry from sperical to cubic.
 For short range interactions such as the 12-6 interaction of Equation :eq:`lj` it is possible to make the size 
 of the system sufficiently large that the contributions of all images, except the nearest, can be 
 disregarded, because they are too far away. The nearest image can be in the same (i.e. central) cell 
-but also in one of the neighboring cells, see Figure :numref:`pbc`.
+but also in one of the neighboring cells, see the figure above.
 This approximation is known the name minimum image approximation. We will illustrate the code of the 
 minimum image approximation for a cubic box, i.e. :math:`\textbf{a}, \textbf{b}, \textbf{c}`
 have all the same length $L$ and are directed along the :math:`x`-, :math:`y`- and :math:`z`-axis of the 
