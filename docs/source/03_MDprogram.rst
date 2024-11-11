@@ -722,7 +722,7 @@ have all the same length :math:`L` and are directed along the :math:`x`-, :math:
 Cartesian frame, respectively.
 
 .. code-block::
-    :label: minimumImage
+    :linenos:
 
     do i = 1, natom
         ! anint() rounds to the nearest integer
