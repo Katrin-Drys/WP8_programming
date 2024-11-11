@@ -737,3 +737,9 @@ Cartesian frame, respectively.
             r_ij(:) = r_ij(:) - l * anint(r_ij(:) / l)
         end do
     end do
+
+The operation :math:`y = x - l*anint(x/l)` reduces :math:`x` to a number :math:`y` with magnitude 
+:math:`\left|y\right|\leq l/2` and the correct sign. 
+Think about where to implement the periodic boundary conditions in your program,
+and how to modify the force and potential energy calculation routines accordingly.
+Then include the minimum image approximation in your program, and take a look at your trajectory.
