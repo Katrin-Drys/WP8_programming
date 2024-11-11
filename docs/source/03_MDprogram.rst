@@ -721,7 +721,7 @@ minimum image approximation for a cubic box, i.e. :math:`\textbf{a}, \textbf{b},
 have all the same length :math:`L` and are directed along the :math:`x`-, :math:`y`- and :math:`z`-axis of the 
 Cartesian frame, respectively.
 
-.. code-block::
+.. code-block:: fortran
     :linenos:
 
     do i = 1, natom
