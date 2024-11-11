@@ -6,3 +6,7 @@ average kinetic, potential and total energy when the equilibrium is reached. Plo
 both equilibrated systems the redial distribution function by using TRAVIS. Compare the 
 pair distribution functions. What kind of structural changes can be observed and what 
 kind of physical states are we simulating? Explain which system represents which physical state. 
+
+
+test
+====
