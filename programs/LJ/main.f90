@@ -2,18 +2,20 @@ program main
     use helpers
     implicit none
 
-    integer, parameter :: itime = 2000     
+    integer, parameter :: itime = 8000     
     real*8, parameter :: m = 39.948d0      
-    real*8, parameter :: dt = 0.008d0 
-    integer, parameter :: natom = 108       
-    real*8, parameter :: l = 17.158d0  
-    integer, parameter :: Treq = 500  
+    real*8, parameter :: dt = 0.005d0 
+    integer, parameter :: natom = 108    
+    ! start density: l = 17.158d0; density = 0.095 g/cm^3 - l = 42.2488d0; density = 1.050 g/cm^3 - l = 18.9667d0   
+    real*8, parameter :: l = 17.158d0 
+    integer, parameter :: Treq = 140
 
     real*8 :: T 
     real*8, dimension(3,natom) :: coord     
     real*8, dimension(3,natom) :: vatom             
     real*8, dimension(3,natom) :: fatom
     real*8 :: Epot, Ekin, Etot
+    real*8 :: time
     integer :: i, j, run
 
     ! Create a FCC grid
@@ -33,7 +35,7 @@ program main
     
     open(15, file='trajectory.xyz')
     open(16, file='energy.txt')
-    write(16,*) 'run ', 'Ekin ', 'Epot ', 'Etot '
+    write(16,*) 'Step ', 'Time', 'Temp', 'Ekin ', 'Epot ', 'Etot '
     
     ! Main loop
     do run = 1, itime
@@ -60,7 +62,7 @@ program main
         end do    
 
         ! Scale the temperature
-        if (run == 1) then
+        if (run >= 1) then
             T = 2.0d0 * Ekin / (3.0d0 * real(natom))
             do i = 1, natom
                 vatom(:, i) = vatom(:, i) * sqrt(Treq / T)
@@ -70,8 +72,9 @@ program main
         call calc_pot(natom, l, coord, Epot)
         Etot = Ekin + Epot
 
+        time = run * dt
         ! Write the energy into a file
-        write(16,*) run, Ekin, Epot, Etot
+        write(16,*) run, time, T, Ekin, Epot, Etot
     end do      
 
 end program main
