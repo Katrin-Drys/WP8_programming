@@ -568,7 +568,7 @@ interpretation: :math:`V(r) = 0` at :math:`r = \sigma`, repulsive for :math:`r <
 
 .. admonition:: LJ parameters for Argon
 
-    :math:`\varepsilon/k_\text{B} = 120~\mathrm{K}` and :math:`\sigma = 3.405~`Å.
+    :math:`\varepsilon/k_\text{B} = 120~\mathrm{K}` and :math:`\sigma = 3.405~Å`.
 
 At :math:`r = 3\sigma, V(r) \approx -0.005 \sigma`, i.e. less than a percent of the value at the minimum. 
 Therefore, beyond this radius, or even already at shorter distances, the contribution to energy and 
