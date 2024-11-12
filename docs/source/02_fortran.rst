@@ -563,8 +563,9 @@ Let's proceed with another exercise.
 .. admonition:: Exercise 5
 
     Copy and modify your vector-program such that you calculate the scalar product and the vector product 
-    in subroutines. Notice that if you give descriptive names to your subroutines, the structure of the main 
-    program is much easier to understand. You therein describe what you do, not how you do it.
+    in subroutines. Call the subroutines from the main program and print the results.
+    Notice that if you give descriptive names to your subroutines, the structure of the main 
+    program is much easier to understand. 
 
 Application
 -----------
