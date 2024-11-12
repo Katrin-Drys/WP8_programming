@@ -554,7 +554,7 @@ that you used so far.
         gfortran FileNameModule.o FileNameProgram.o -o MyProgram
         ./MyProgram
 
-You can of course alse collect your subroutines in the same file as your main program.
+You can of course also collect your subroutines in the same file as your main program.
 In this case, you don't need to use modules and you don't need to compile the module separately.
 You can just compile the program as usual.
 
@@ -626,6 +626,7 @@ To ensure that we have enough lattice points to place all atoms ``N`` = natom, w
 number of lattice points per side by one if the number of lattice points cubed is smaller than the 
 number of atoms.
 Now of course we have too many lattice points, and thus some of them will remain empty.
+Compile and run the program on your workstation.
 
 .. tip::
     You can visualize the box you created using the ``VMD`` program.
