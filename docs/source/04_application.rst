@@ -2,7 +2,7 @@ Perform two MD simulations
 ===========================
 
 Simulate the behavior of two Lennard-Jones-systems (Argon) with the following parameters
-using your own MD program. :
+using your own MD program:
 
 +-----------------------------+-------------------------+
 | Parameter                   | Value                   |
