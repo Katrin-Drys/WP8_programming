@@ -3,8 +3,9 @@ Working on Linux
 
 Within this seminar you will be working under the operating system Linux. The Linux distribution 
 SuSE 42.3 is installed on all computers in the CIP-pool. A specific machine has been
-assigned to each of you and you will work at the assigned computer in the university and/or 
-via remote. In order to work remote, you must log in on the ssh5 exchange server, using your credentials.
+assigned to each of you. You will work at the assigned computer in the university and/or 
+via remote. It is also fine to work on your personal computer.
+In order to work remote, you must log in on the ssh5 exchange server, using your credentials.
 On the terminal on your personal pc, or on a
 simulator, type:
 
@@ -28,11 +29,11 @@ On the left you can see the so called ``prompt``. Depending on the default setti
 system it provides you with various information. In a standard configuration it will show:
 ``username@hostname:~>``. Where ``username`` is your username, ``hostname`` is the name of the
 computer and the tilde (~) shows that you are currently located in your home directory. The
-Linux file structure follows the 'Filesystem Hierarchy Standard', which ensures a similar file
+Linux file structure follows the ``Filesystem Hierarchy Standard``, which ensures a similar file
 structure on every version of Linux you can get. As you work with the system you will rapidly
 gain experience about the different directories and their purposes. For now you should know
 that you are in your home directory which is located at ``/home/username`` and is abbreviated
-by ~.
+by ``~``.
 
 With your user account you have the power to create, edit, and delete files in your home
 directory. But with great power also comes great responsibility. You have to be careful with
@@ -71,9 +72,6 @@ A standard set of commands is shown in the following table.
 +-------------------------+----------------------------------------------+
 | ``mkdir <dir>``         | Creates a new directory with name ``<dir>``. |
 +-------------------------+----------------------------------------------+
-| ``rmdir <name>``        | remove (empty) directory with ``<name>``     |
-+-------------------------+----------------------------------------------+
-
 
 This is only a very basic list of commands available and some of them possess a huge variety of 
 options that can not be listed here.
@@ -104,7 +102,7 @@ In the following table some useful commands for dealing with text files are list
 | ``wc <file>``                    | Counts the number of lines, words and        |
 |                                  | characters in the file.                      |
 +----------------------------------+----------------------------------------------+
-| ``sed `s/text1/text2/g <file>``  | Replaces the text1 with text2 in the file.   |
+| ``sed `s/text1/text2/g` <file>`` | Replaces the text1 with text2 in the file.   |
 +----------------------------------+----------------------------------------------+
 
 Redirecting the Input/Output
