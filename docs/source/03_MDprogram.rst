@@ -44,7 +44,7 @@ Similar series are defined for the velocities of the particles, denoted by :math
 
 The MD schemes we will discuss all use the Cartesian representation. There are, in fact, good reasons 
 for preferring this description for the chaotic interaction many body systems which are the subject 
-of ``statical mechanics``.
+of ``statistical mechanics``.
 
 Verlet algorithm
 ---------------------------------
@@ -77,17 +77,17 @@ are added we obtain a prediction for the position :math:`r_i` of the particle at
 Note that the accuracy of the prediction is third order in time, i.e., one order better than of the Taylor 
 Equations :eq:`forwardTaylor` and :eq:`backwardTaylor`. This gain in accuracy was achieved by cancellation of odd powers in 
 time, including the first order term depending on the velocity :math:`\mathbf{v}_i(t)`.
-The velocity :math:`\mathbf{v}_i(t)` is obtained in the Verlet algorithm by substraction of the 
+The velocity :math:`\mathbf{v}_i(t)` is obtained in the Verlet algorithm by subtraction of the 
 forward Taylor expansion :eq:`forwardTaylor` from the backward Taylor expansion :eq:`backwardTaylor`.
 This gives the expression:
 
 .. math::
-    :label: substractionTaylor
+    :label: subtractionTaylor
 
     \mathbf{v}_i(t)=\frac{1}{2 \delta t}[\mathbf{r}_i(t + \delta t)-\mathbf{r}_i(t - \delta t)]+O(\delta t^3),
 
 from which the explicit dependence of the forces has been eliminated. The velocity obtained by 
-Equations :eq:`substractionTaylor` is the current value at time *t*. Therefore, the velocity 
+Equations :eq:`subtractionTaylor` is the current value at time *t*. Therefore, the velocity 
 update in the Verlet algorithm is one step behind the position update. This is not a problem 
 for propagating positions, because assuming that the forces are not dependent on the velocity, 
 information on :math:`\mathbf{v}_i(t)` is not needed in Equation :eq:`sumTaylor`.
@@ -123,14 +123,14 @@ time :math:`t + \delta t` as reference
 and add this to the forward expansion Equation :eq:`forwardTaylor` to yield the prediction of the velocity
 
 .. math::
-    :label: velocityVVerlet
+    :label: velocityVerlet
 
     \mathbf{v}_i(t + \delta t)=\mathbf{v}_i(t)+\frac{\delta t^2}{2m_i}[\mathbf{f}_i(t)+\mathbf{f}_i(t+\delta t)],
 
 which then can be used together with the prediction of the positions in Equation :eq:`forwardTaylor`
 in the next step. 
-The (position) Verlet algorithm specified by Equations :eq:`sumTaylor` and :eq:`substractionTaylor`
-and the velocity Verlet scheme of Equations :eq:`forwardTaylor2` and :eq:`velocityVVerlet`
+The (position) Verlet algorithm specified by Equations :eq:`sumTaylor` and :eq:`subtractionTaylor`
+and the velocity Verlet scheme of Equations :eq:`forwardTaylor2` and :eq:`velocityVerlet`
 may appear rather dissimilar. 
 They are, however equivalent, producing  exactly the same discrete trajectory in time. 
 This can be demonstrated by elimination of the velocity. Subtracting from the 
@@ -163,7 +163,7 @@ Leap-frog algorithm
 ---------------------------------
 A modification of the Verlet algorithm predating velocity Verlet which also makes explicit use of 
 velocity as iteration variable is the ``leap-frog algorithm``. In this scheme the position and velocity 
-are a half time step out of step. The velocities as half integer time are defined as
+are a half time step out of step. The velocities at half-integer time are defined as
 
 .. math::
     :label: velocitiesleapfrog
@@ -462,7 +462,7 @@ where :math:`\Lambda` is the thermal wavelength
     \Lambda = \frac{h}{\sqrt{2\pi mk_\text{B}T}}.
 
 The factor :math:`\Lambda^{3N}` is a temperature dependent volume element in configuration space.
-The deeper significance of the thermal wavelength :math:`\Lambda` is that it provides a criterium 
+The deeper significance of the thermal wavelength :math:`\Lambda` is that it provides a criterion 
 for the approach to the classical limit.
 Quantum effects can be ignored in equilibrium statistics if :math:`\Lambda` is smaller than any 
 characteristic length in the system.
@@ -544,7 +544,7 @@ Rescale the velocities once every 10 steps.
 
 Interacting potential 
 =====================
-Having introduced the basic procedures of an MD code, we now want to replace the the routines
+Having introduced the basic procedures of an MD code, we now want to replace the routines
 for calculating the forces and potential energy for the ``harmonic potential`` by an interacting potential. 
 The model we will use is the pair-wise additive potential which has the prototype for MD, namely 
 the ``12-6 Lennard-Jones potential``. 
@@ -674,7 +674,7 @@ Optimization of the code for the force loop is, therefore, most critical.
 One features of the code that implements the force calculation, which may seem somewhat odd at first, is the fact, 
 that the computation of the square root :math:`r = \sqrt{r^2}` is avoided. 
 The square root is a relatively expensive operation. 
-This was particularly noticable for the generation of computers in the 60's and early 70's 
+This was particularly noticeable for the generation of computers in the 60's and early 70's 
 on which these MD codes were developed.
 
 Periodic boundary conditions (PBC)
@@ -698,7 +698,7 @@ If the MD box is spanned by three vectors :math:`\textbf{a}`, :math:`\textbf{b}`
 the images are displaced by multiples :math:`l\textbf{a} + m\textbf{b} + n\textbf{c}` of 
 these basis vectors, where :math:`l,m,n` are integers (positive and negative). The potential 
 energy of the particles in the central cell, corresponding to (:math:`l,m,n`) = (:math:`0,0,0`), is 
-now a sum of the interacions over all cells.
+now a sum of the interactions over all cells.
 
 .. math:: 
     :label: EpotPBC
@@ -712,7 +712,7 @@ now a sum of the interacions over all cells.
 
 Note that linear momentum is still a constant of motion in such a set of infinitely replicated systems. 
 The conservation of angular momentum, however, is lost as a result of the reduction of rotational 
-symmetry from sperical to cubic.
+symmetry from spherical to cubic.
 For short range interactions such as the 12-6 interaction of Equation :eq:`lj` it is possible to make the size 
 of the system sufficiently large that the contributions of all images, except the nearest, can be 
 disregarded, because they are too far away. The nearest image can be in the same (i.e. central) cell 
