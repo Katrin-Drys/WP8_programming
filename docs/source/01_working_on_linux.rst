@@ -2,7 +2,7 @@ Working on Linux
 ================
 
 Within this seminar you will be working under the operating system Linux. The Linux distribution 
-SuSE 42.3 is installed on all computers in the CIP-pool. A specific machine has be
+SuSE 42.3 is installed on all computers in the CIP-pool. A specific machine has been
 assigned to each of you and you will work at the assigned computer in the university and/or 
 via remote. In order to work remote, you must log in on the ssh5 exchange server, using your credentials.
 On the terminal on your personal pc, or on a
