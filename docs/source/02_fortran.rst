@@ -441,16 +441,9 @@ Imagine a vector has been allocated with 3 elements, but you try to access the 4
 What will happen? The answer is: nobody knows.
 One of the following things may happen:
 
-- The best case is that the program is not permitted by the operating system (Linux in our case) to 
-access that part of main memory that you just tried to access. In that case, it would give a message 
-like ``Operation not permitted`` or ``Segmentation fault`` (segfault in short) and you actually know 
-that there is an error in your code.
+- The best case is that the program is not permitted by the operating system (Linux in our case) to access that part of main memory that you just tried to access. In that case, it would give a message like ``Operation not permitted`` or ``Segmentation fault`` (segfault in short) and you actually know that there is an error in your code.
 - The program may fail quietly, leaving you wondering what happened.
-- The worst case is this: No safety checks catch the problem, and your program reads whatever it finds 
-in the location described by vector(4). This may be anything from total garbage to zero. Since the program 
-has no indication that there was a problem, it will use that value in a computation - which will give 
-unexpected or flawed results. It is the very nature of such errors that they are hard to spot, even when 
-you are aware that there is a problem.
+- The worst case is this: No safety checks catch the problem, and your program reads whatever it finds in the location described by vector(4). This may be anything from total garbage to zero. Since the program has no indication that there was a problem, it will use that value in a computation - which will give unexpected or flawed results. It is the very nature of such errors that they are hard to spot, even when you are aware that there is a problem.
 
 What actually happens depends on many factors: operating system, system usage, number and nature of concurrently 
 running programs etc. If a program (which does not use random numbers) gives different results with the same input 
