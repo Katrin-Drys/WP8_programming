@@ -1,8 +1,8 @@
 What is the purpose of programming?
 -----------------------------------
 Programming is the art of precisely telling a computer what to do, usually to perform an 
-action or solve a problem which would be too difficult to do by hand. It thus involves the 
-following steps: 
+action or solve a problem which would be too difficult or would take too long
+to do by hand. It thus involves the following steps: 
 
 1. **Problem definition**: What do you want to achieve?
 2. **Algorithm design**: How can you achieve it?
@@ -62,7 +62,7 @@ To compile the program, open a terminal and type:
     gfortran hello.f90 -o hello
 
 The ``gfortran`` command is the compiler, ``hello.f90`` is the source code file.
-The ``-o``flag allows you to specify the name of the output file, which is ``hello`` in this case.
+The ``-o`` flag allows you to specify the name of the output file, which is ``hello`` in this case.
 If you don't specify the output file name, the compiler will create a file called ``a.out``.
 To run the program, type:
 
