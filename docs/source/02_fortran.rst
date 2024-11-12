@@ -52,7 +52,7 @@ The last name contains the ``end program`` statement, followed by the program na
 
 Now open your favorite text editor and copy the code above into a new file. Save the file as 
 ``hello.f90``. 
-All files witten in Fortran must have the extension ``.f90``.
+All files written in Fortran must have the extension ``.f90``.
 F90 is case-insensitive, so you can write the code in uppercase or lowercase letters and it will
 still work.
 To compile the program, open a terminal and type:
@@ -543,7 +543,7 @@ that you used so far.
     If you define modules, you can even write the code into separate files and include them in your program
     using the ``use`` statement.
 
-    If you dicide to keep the modules in a file named ``FileNameModule.f90`` and the main program in another
+    If you decide to keep the modules in a file named ``FileNameModule.f90`` and the main program in another
     file named ``FileNameProgram.f90``, you need to compile the module first.
     In this example, the following steps are necessary:
 
