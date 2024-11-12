@@ -20,10 +20,12 @@ using your own MD program:
 
 System 1 should have a density of :math:`\rho_1 = 0.095~g/cm^3` and 
 System 2 should have a density of :math:`\rho_2 = 1.050~g/cm^3`.
+
 Estimate when the equilibrium is reached by plotting the total energy and temperature. 
 Explain your decision process. Furthermore calculate the average kinetic, potential and 
 total energy when the equilibrium is reached. 
-Plot for both equilibrated systems the redial distribution function by using ``TRAVIS``. 
+
+Plot for both equilibrated systems the ``radial distribution function`` by using ``TRAVIS``. 
 To do so, type the following command in your terminal:
 
 .. code-block:: bash
