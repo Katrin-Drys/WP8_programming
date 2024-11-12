@@ -461,7 +461,7 @@ it starts off with a defined value. This process is called initialization and is
     Additionally, if the dismensions of the two vectors are 3, it should also calculate the vector product of the 
     two vectors :math:`\vec{a}\times\vec{b}`.
 
-    Remember that vou can pipe files into the program to provide input without having to type it manually
+    Remember that you can pipe files into the program to provide input without having to type it manually
     in the console every time. 
 
 
@@ -553,6 +553,10 @@ that you used so far.
         gfortran -c FileNameProgram.f90
         gfortran FileNameModule.o FileNameProgram.o -o MyProgram
         ./MyProgram
+
+You can of course alse collect your subroutines in the same file as your main program.
+In this case, you don't need to use modules and you don't need to compile the module separately.
+You can just compile the program as usual.
 
 Let's proceed with another exercise.
 
