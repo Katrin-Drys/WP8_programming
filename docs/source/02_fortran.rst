@@ -137,10 +137,7 @@ Now we are ready to write a program that adds two numbers.
 Let's go through the program step by step:
 
 - Line 1: The program name is ``add``.
-- Line 2: The ``implicit none`` statement tells the compiler that all variables must be declared explicitly.
-           If this is not done, the compiler will assume that variables starting with the letters ``i``, ``j``, ``k``,
-           ``l``, ``m`` and ``n`` are integers, when not declared explicitly.
-           Put this statement at the beginning of every program you write!
+- Line 2: The ``implicit none`` statement tells the compiler that all variables must be declared explicitly. If this is not done, the compiler will assume that variables starting with the letters ``i``, ``j``, ``k``, ``l``, ``m`` and ``n`` are integers, when not declared explicitly. Put this statement at the beginning of every fortran program you write!
 - Line 5: We declare three variables: ``a``, ``b`` and ``res`` as integers.
 - Lines 8 and 9: We assign the values 5 and 3 to the variables ``a`` and ``b``.
 - Line 12: We add the numbers and store the result in the variable ``res``.
