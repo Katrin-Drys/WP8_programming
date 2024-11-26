@@ -1,9 +1,5 @@
-Template for the Read the Docs tutorial
+Molecular Dynamic Simulation
 =======================================
 
-This GitHub template includes fictional Python library
-with some basic Sphinx docs.
-
-Read the tutorial here:
-
-https://docs.readthedocs.io/en/stable/tutorial/
+Welcome to the WP8 programming part.
+Here you will learn how to programm your own basic MD simulation using FORTRAN.

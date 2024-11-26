@@ -1,20 +1,35 @@
 Welcome to the programming part of WP8!
 ===================================
 
-This is the script that will help you to programm your own 
-MD simulation.
+This script will walk you through building your own program to run a 
+Molecular Dynamics (MD) simulation.
 
-Check out the :doc:`usage` section for further information, including
-how to :ref:`installation` the project.
+Have fun!
+
+.. toctree::
+   :maxdepth: 3
+   :caption: Preparation
+
+   01_working_on_linux
+
+.. toctree::
+   :maxdepth: 3
+   :caption: Programming in Fortran 90 (F90)
+
+   02_fortran
+
+.. toctree::
+   :maxdepth: 3
+   :caption: Writing a simple MD program
+
+   03_MDprogram
+
+.. toctree::
+   :maxdepth: 3
+   :caption: Application
+
+   04_application
 
 .. note::
 
    This project is under active development.
-
-Contents
---------
-
-.. toctree::
-
-   usage
-   api
