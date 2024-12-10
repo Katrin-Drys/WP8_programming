@@ -456,7 +456,7 @@ it starts off with a defined value. This process is called initialization and is
 
 .. admonition:: Exercise 4
 
-    Write a program that - takes the dimension and the values of two vectors :math:`\vec{a}` and :math:`\vec{b}`
+    Write a program that takes the dimension and the values of two vectors :math:`\vec{a}` and :math:`\vec{b}`
     as input, and calculates the scalar product of the two vectors :math:`\vec{a}\cdot\vec{b}`.
     Additionally, if the dismensions of the two vectors are 3, it should also calculate the vector product of the 
     two vectors :math:`\vec{a}\times\vec{b}`.
