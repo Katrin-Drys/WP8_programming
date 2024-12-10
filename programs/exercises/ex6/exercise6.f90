@@ -18,7 +18,7 @@ program FCC_grid
     nlp = int((natom / 4.0d0)**(1.0d0/3.0d0))
     write(*,*) 'Number of lattice points per side = ', nlp
 
-    if ((nlp*4)**3 < natom) then
+    if ((nlp**3)*4 < natom) then
         nlp = nlp + 1
     end if
 
