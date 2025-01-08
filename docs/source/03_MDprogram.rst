@@ -533,12 +533,12 @@ Velocity Verlet algorithm.
 
     ...
     
-    T = 2.0d0 * Ekin / (3.0d0 * k * real(natom))    
+    T = 2.0d0 * Ekin / (3.0d0 * real(natom))    
     do i = 1, natom
         vatom(:,i) = vatom(:,i) * sqrt(Treq / T)    ! sqrt (square root) is an intrinsic function
     end do
 
-The variable ``Treq``is the required temperature. 
+The variable ``Treq`` is the required temperature. 
 Write this part of Code into a fitting place in your program.
 Rescale the velocities once every 10 steps.
 
