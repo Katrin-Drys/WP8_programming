@@ -13,9 +13,9 @@ using your own MD program:
 +-----------------------------+-------------------------+
 | Number of iterations        | 8000                    |
 +-----------------------------+-------------------------+
-| Length of time step (ps)    | 0.005                   |
+| Length of time step         | 0.005                   |
 +-----------------------------+-------------------------+
-| Temperature (K)             | 140                     |
+| Temperature                 | 140                     |
 +-----------------------------+-------------------------+
 
 System 1 should have a density of :math:`\rho_1 = 0.095~g/cm^3` and 
