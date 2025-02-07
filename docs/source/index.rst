@@ -30,6 +30,3 @@ Have fun!
 
    04_application
 
-.. note::
-
-   This project is under active development.

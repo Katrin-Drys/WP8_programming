@@ -7,7 +7,7 @@ program main
     real*8, parameter :: dt = 0.005d0 
     integer, parameter :: natom = 108    
     ! start density: l = 17.158d0; density = 0.095 g/cm^3 - l = 42.2488d0; density = 1.050 g/cm^3 - l = 18.9667d0   
-    real*8, parameter :: l = 42.2488d0 
+    real*8, parameter :: l = 17.158d0
     integer, parameter :: Treq = 140
 
     real*8 :: T 
