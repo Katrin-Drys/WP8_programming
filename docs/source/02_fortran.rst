@@ -650,3 +650,11 @@ Compile and run the program on your workstation.
 Great! You have now learned the basics of Fortran programming and are ready to build your own 
 MD simulation program.
 Keep your program for the generation of the fcc lattice. You will need it in the next chapter!
+
+.. admonition:: Deadline - 25.11.2026
+   :class: danger
+
+   Complete the six exercises above. Then, form groups of two or three and write an email to Kai and Katrin 
+   to arrange a time for the discussion. 
+   Keep in mind that you may fail, so allow yourself enough time to prepare again if necessary. 
+   Therefore, don't schedule your first appointment on the last day.

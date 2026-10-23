@@ -542,6 +542,16 @@ The variable ``Treq`` is the required temperature.
 Write this part of Code into a fitting place in your program.
 Rescale the velocities once every 10 steps.
 
+.. admonition:: Deadline - 16.12.2026
+   :class: danger
+
+   Implement everything up to this point. 
+   Your program should be able to produce a simple trajectory of argon atoms.
+   Form groups of two or three and write an email to Kai and Katrin 
+   to arrange a time for the discussion. 
+   Keep in mind that you may fail, so allow yourself enough time to prepare again if necessary. 
+   Therefore, don't schedule your first appointment on the last day.
+
 Interacting potential 
 =====================
 Having introduced the basic procedures of an MD code, we now want to replace the routines

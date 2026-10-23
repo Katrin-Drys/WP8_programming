@@ -36,6 +36,17 @@ and answer the questions that are asked.
 Compare the pair distribution functions. What kind of structural changes can be observed and what 
 kind of physical states are we simulating? Explain which system represents which physical state.
 
+.. admonition:: Deadline - 23.12.2026
+   :class: danger
+
+   Implement everything and complete the exercises mentioned above. 
+   Your program should be able to produce a simple trajectory of argon atoms and you should have 
+   some visualizations of the results you obtained for the two simulations you performed.
+   Form groups of two or three and write an email to Kai and Katrin 
+   to arrange a time for the discussion. 
+   Keep in mind that you may fail, so allow yourself enough time to prepare again if necessary. 
+   Therefore, don't schedule your first appointment on the last day.
+
 Acknowledgements
 ================
 
