@@ -125,7 +125,7 @@ and add this to the forward expansion Equation :eq:`forwardTaylor` to yield the 
 .. math::
     :label: velocityVerlet
 
-    \mathbf{v}_i(t + \delta t)=\mathbf{v}_i(t)+\frac{\delta t^2}{2m_i}[\mathbf{f}_i(t)+\mathbf{f}_i(t+\delta t)],
+    \mathbf{v}_i(t + \delta t)=\mathbf{v}_i(t)+\frac{\delta t}{2m_i}[\mathbf{f}_i(t)+\mathbf{f}_i(t+\delta t)],
 
 which then can be used together with the prediction of the positions in Equation :eq:`forwardTaylor`
 in the next step. 
@@ -146,7 +146,7 @@ Next the :math:`t -\delta t \rightarrow t` update for velocity
 .. math::
     :label: checkStep2
 
-    \mathbf{v}_i(t)=\mathbf{v}_i(t-\delta t)+\frac{\delta t^2}{2m_i}[\mathbf{f}_i(t-\delta t)+\mathbf{f}_i(t)]
+    \mathbf{v}_i(t)=\mathbf{v}_i(t-\delta t)+\frac{\delta t}{2m_i}[\mathbf{f}_i(t-\delta t)+\mathbf{f}_i(t)]
 
 is inserted in Equation :eq:`checkStep1` giving 
 
